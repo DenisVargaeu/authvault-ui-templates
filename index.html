@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Modern Authentication System UI Demo — built with HTML5, CSS3, and Vanilla JavaScript." />
-  <title>AuthVault — Modern Login System</title>
+  <meta name="description" content="authvault-ui-templates — Directory of 8 flat, Notion-inspired authentication UI templates." />
+  <title>authvault-ui-templates — Template Hub</title>
 
-  <!-- Modern Typography (Notion-style Inter) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <!-- Font Awesome Icons -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -19,612 +16,230 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Subtle Dot Grid Background -->
-  <div class="bg-scene" aria-hidden="true">
-    <div class="bg-grid"></div>
-  </div>
+  <div class="bg-grid" aria-hidden="true"></div>
 
-  <!-- Toast Notification Container -->
-  <div
-    id="toast-container"
-    class="toast-container"
-    role="region"
-    aria-label="Notifications"
-    aria-live="polite"
-    aria-atomic="false"
-  ></div>
-
-  <!-- Main Page Shell -->
-  <div class="page-shell">
-    <!-- Top Utility Bar -->
-    <header class="top-bar">
+  <div class="hub-shell">
+    <!-- Top Bar -->
+    <header class="hub-topbar">
       <div class="brand-chip">
         <span class="brand-chip__icon" aria-hidden="true">
           <i class="fa-solid fa-shield-halved"></i>
         </span>
-        <span class="brand-chip__name">AuthVault</span>
-        <span class="demo-badge" title="Simulated authentication only — no data is sent or stored">
-          Demo
-        </span>
+        <span class="brand-chip__name">authvault-ui-templates</span>
+        <span class="badge">8 Layouts</span>
       </div>
 
-      <button
-        type="button"
-        id="theme-toggle"
-        class="theme-toggle"
-        aria-label="Switch to light theme"
-        aria-pressed="false"
-        title="Toggle light / dark theme"
-      >
-        <span class="theme-toggle__track" aria-hidden="true">
-          <i class="fa-solid fa-moon theme-toggle__icon theme-toggle__icon--moon"></i>
-          <i class="fa-solid fa-sun theme-toggle__icon theme-toggle__icon--sun"></i>
-          <span class="theme-toggle__thumb"></span>
-        </span>
-        <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
-      </button>
+      <div class="topbar-actions">
+        <span class="kbd-hint" aria-hidden="true"><kbd>Alt</kbd> + <kbd>T</kbd></span>
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__track" aria-hidden="true">
+            <i class="fa-solid fa-moon theme-toggle__icon"></i>
+            <i class="fa-solid fa-sun theme-toggle__icon"></i>
+            <span class="theme-toggle__thumb"></span>
+          </span>
+          <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+        </button>
+      </div>
     </header>
 
-    <!-- Main Split Layout: Editorial Notion Canvas (Left) + Auth Card (Right) -->
-    <main class="auth-wrapper">
-      <!-- Left Side: Interactive Notion-Style Workspace Showcase -->
-      <aside class="workspace-canvas" aria-label="Workspace preview">
-        <!-- Subtle Flat Architectural Line Art -->
-        <div class="canvas-art" aria-hidden="true">
-          <svg viewBox="0 0 360 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path class="art-line art-line--1" d="M0 88C60 88 84 26 150 26C216 26 244 92 310 54C334 40 348 34 360 34" stroke="currentColor" stroke-width="1.2" />
-            <path class="art-line art-line--2" d="M0 102C72 102 102 44 168 44C234 44 260 104 326 68C342 59 352 54 360 54" stroke="currentColor" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="3 5" />
-            <circle class="art-node art-node--1" cx="150" cy="26" r="3.5" fill="currentColor" />
-            <circle class="art-node art-node--2" cx="310" cy="54" r="3" fill="currentColor" fill-opacity="0.7" />
-          </svg>
-        </div>
-
-        <div class="canvas-kicker">
-          <span class="kicker-dot" aria-hidden="true"></span>
-          <span>AuthVault</span>
-          <span class="kicker-sep">/</span>
-          <span>Workspace Access</span>
-        </div>
-
-        <h2 class="canvas-title">
-          Quiet, focused access<br />for modern workspaces.
-        </h2>
-
-        <p class="canvas-desc">
-          A calm, flat authentication experience crafted with pure HTML, CSS, and Vanilla JavaScript.
-          Zero frameworks, instant feedback, and keyboard-first ergonomics.
+    <!-- Editorial Intro + Filter Bar -->
+    <section class="hub-hero" aria-label="Collection overview">
+      <div class="hub-hero__copy">
+        <span class="eyebrow">Authentication UI Directory</span>
+        <h1 class="hub-title">Choose a layout template.</h1>
+        <p class="hub-desc">
+          Eight standalone, flat Notion-inspired login &amp; registration templates built with pure
+          HTML5, CSS3, and Vanilla JavaScript. Simulated authentication only.
         </p>
+      </div>
 
-        <!-- Interactive Notion-Style Live Status & Inspector Block -->
-        <div class="notion-block" aria-label="Live session inspector">
-          <div class="notion-block__header">
-            <span class="notion-block__title">
-              <i class="fa-solid fa-sliders" aria-hidden="true"></i>
-              Live Session Inspector
-            </span>
-            <span id="live-status-pill" class="status-pill">Idle</span>
+      <div class="filter-bar" role="group" aria-label="Filter templates by category">
+        <button type="button" class="filter-btn is-active" data-filter="all">All (8)</button>
+        <button type="button" class="filter-btn" data-filter="split">Split</button>
+        <button type="button" class="filter-btn" data-filter="centered">Centered</button>
+        <button type="button" class="filter-btn" data-filter="shell">App Shell</button>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <main class="gallery-grid" id="gallery-grid" aria-label="Template gallery">
+      <a href="./1/" class="template-card" data-category="split">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-1.png" alt="Layout 01 — Right Editorial Split preview" loading="lazy" />
+          <span class="thumb-num">01</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Right Editorial Split</h2>
+            <span class="cat-tag">Split</span>
           </div>
-
-          <div class="notion-props">
-            <div class="notion-prop">
-              <span class="notion-prop__key">Active View</span>
-              <span id="live-view-value" class="notion-prop__val">Sign In</span>
-            </div>
-            <div class="notion-prop">
-              <span class="notion-prop__key">Theme</span>
-              <span id="live-theme-value" class="notion-prop__val">Espresso Dark</span>
-            </div>
-            <div class="notion-prop">
-              <span class="notion-prop__key">Storage</span>
-              <span class="notion-prop__val">Simulated (No Passwords)</span>
-            </div>
-          </div>
-
-          <div class="notion-block__actions">
-            <button type="button" id="quick-fill-btn" class="notion-action-btn">
-              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-              <span>Fill demo credentials</span>
-            </button>
-            <div class="shortcut-hint" aria-label="Keyboard shortcut">
-              <kbd>Alt</kbd><span>+</span><kbd>T</kbd>
-              <span class="shortcut-hint__label">Theme</span>
-            </div>
+          <p class="template-card__desc">
+            Left workspace canvas with subtle line art &amp; live session inspector, right auth card.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/1/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
         </div>
-      </aside>
+      </a>
 
-      <section class="auth-card" aria-label="Authentication">
-        <!-- Compact Header: Flat Shield Vector + Title + Inline Highlights -->
-        <header class="card-header">
-          <div class="card-header__top">
-            <div class="shield-stage" aria-hidden="true">
-              <svg
-                class="shield-svg"
-                viewBox="0 0 64 64"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-hidden="true"
-              >
-                <g class="svg-shield-float">
-                  <path
-                    d="M32 6L52 13.8V31.2C52 44.8 43.2 54.4 32 58.8C20.8 54.4 12 44.8 12 31.2V13.8L32 6Z"
-                    fill="currentColor"
-                    fill-opacity="0.1"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M26.5 31V26.5C26.5 23.46 28.96 21 32 21C35.04 21 37.5 23.46 37.5 26.5V31"
-                    stroke="currentColor"
-                    stroke-width="2.2"
-                    stroke-linecap="round"
-                  />
-                  <rect
-                    x="23"
-                    y="30.5"
-                    width="18"
-                    height="14"
-                    rx="3"
-                    fill="currentColor"
-                  />
-                  <circle cx="32" cy="36.2" r="1.7" fill="var(--bg-card)" />
-                  <rect x="31.25" y="37" width="1.5" height="3.8" rx="0.75" fill="var(--bg-card)" />
-                </g>
-              </svg>
-            </div>
-
-            <div class="brand-copy">
-              <h1 id="brand-heading" class="brand-copy__title">Welcome back!</h1>
-              <p id="brand-subtitle" class="brand-copy__subtitle">
-                Sign in to continue to your account
-              </p>
-            </div>
+      <a href="./2/" class="template-card" data-category="centered">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-2.png" alt="Layout 02 — Centered Minimal Notion Document preview" loading="lazy" />
+          <span class="thumb-num">02</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Centered Minimal Document</h2>
+            <span class="cat-tag">Centered</span>
           </div>
-
-          <ul class="feature-list" aria-label="Platform highlights">
-            <li class="feature-item">
-              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
-              <span>Fast &amp; Secure</span>
-            </li>
-            <li class="feature-item">
-              <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-              <span>Modern Design</span>
-            </li>
-            <li class="feature-item">
-              <i class="fa-regular fa-heart" aria-hidden="true"></i>
-              <span>Made with Love</span>
-            </li>
-          </ul>
-        </header>
-
-        <!-- Form Body -->
-        <div class="card-body">
-          <!-- Tab Switcher (Visible on Login / Register views) -->
-          <div id="auth-tabs" class="auth-tabs" role="tablist" aria-label="Authentication mode">
-            <div class="auth-tabs__indicator" id="tab-indicator" aria-hidden="true"></div>
-            <button
-              type="button"
-              id="tab-login"
-              class="auth-tab is-active"
-              role="tab"
-              aria-selected="true"
-              aria-controls="view-login"
-              data-view="login"
-            >
-              <span>Sign In</span>
-            </button>
-            <button
-              type="button"
-              id="tab-register"
-              class="auth-tab"
-              role="tab"
-              aria-selected="false"
-              aria-controls="view-register"
-              data-view="register"
-            >
-              <span>Register</span>
-            </button>
-          </div>
-
-          <!-- Views Container -->
-          <div class="views-container">
-            <!-- ==================== LOGIN VIEW ==================== -->
-            <div
-              id="view-login"
-              class="auth-view is-active"
-              role="tabpanel"
-              aria-labelledby="tab-login"
-            >
-              <form id="login-form" class="auth-form" novalidate>
-                <div class="form-group">
-                  <label for="login-email" class="form-label">Email Address</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-regular fa-envelope"></i>
-                    </span>
-                    <input
-                      type="email"
-                      id="login-email"
-                      name="email"
-                      class="form-input"
-                      placeholder="name@example.com"
-                      autocomplete="email"
-                      required
-                      aria-describedby="login-email-error"
-                    />
-                    <span class="input-status-icon" aria-hidden="true"></span>
-                  </div>
-                  <p id="login-email-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-group">
-                  <label for="login-password" class="form-label">Password</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-solid fa-lock"></i>
-                    </span>
-                    <input
-                      type="password"
-                      id="login-password"
-                      name="password"
-                      class="form-input form-input--has-toggle"
-                      placeholder="Enter your password"
-                      autocomplete="current-password"
-                      required
-                      aria-describedby="login-password-error"
-                    />
-                    <button
-                      type="button"
-                      class="password-toggle"
-                      data-target="login-password"
-                      aria-label="Show password"
-                      aria-pressed="false"
-                    >
-                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <p id="login-password-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-row">
-                  <label class="checkbox-label">
-                    <input type="checkbox" id="remember-me" class="checkbox-input" />
-                    <span class="checkbox-box" aria-hidden="true">
-                      <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span class="checkbox-text">Remember me</span>
-                  </label>
-
-                  <button
-                    type="button"
-                    class="text-link"
-                    data-switch-view="forgot"
-                  >
-                    Forgot password?
-                  </button>
-                </div>
-
-                <button type="submit" id="login-submit" class="btn btn--primary">
-                  <span class="btn__content">
-                    <span>Sign In</span>
-                    <i class="fa-solid fa-arrow-right btn__arrow" aria-hidden="true"></i>
-                  </span>
-                  <span class="btn__loader" aria-hidden="true">
-                    <span class="spinner"></span>
-                    <span>Signing in...</span>
-                  </span>
-                </button>
-
-                <div class="divider" role="separator">
-                  <span>or</span>
-                </div>
-
-                <button type="button" class="btn btn--google" data-demo-provider="Google">
-                  <i class="fa-brands fa-google google-fa-icon" aria-hidden="true"></i>
-                  <span>Continue with Google</span>
-                  <span class="btn__tag">Demo</span>
-                </button>
-
-                <p class="form-switch">
-                  Don't have an account?
-                  <button type="button" class="text-link text-link--strong" data-switch-view="register">
-                    Create account
-                  </button>
-                </p>
-              </form>
-            </div>
-
-            <!-- ==================== REGISTER VIEW ==================== -->
-            <div
-              id="view-register"
-              class="auth-view"
-              role="tabpanel"
-              aria-labelledby="tab-register"
-              hidden
-            >
-              <form id="register-form" class="auth-form auth-form--compact" novalidate>
-                <div class="form-group">
-                  <label for="register-name" class="form-label">Full Name</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-regular fa-user"></i>
-                    </span>
-                    <input
-                      type="text"
-                      id="register-name"
-                      name="name"
-                      class="form-input"
-                      placeholder="Alex Mercer"
-                      autocomplete="name"
-                      required
-                      aria-describedby="register-name-error"
-                    />
-                    <span class="input-status-icon" aria-hidden="true"></span>
-                  </div>
-                  <p id="register-name-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-group">
-                  <label for="register-email" class="form-label">Email Address</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-regular fa-envelope"></i>
-                    </span>
-                    <input
-                      type="email"
-                      id="register-email"
-                      name="email"
-                      class="form-input"
-                      placeholder="name@example.com"
-                      autocomplete="email"
-                      required
-                      aria-describedby="register-email-error"
-                    />
-                    <span class="input-status-icon" aria-hidden="true"></span>
-                  </div>
-                  <p id="register-email-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-group">
-                  <label for="register-password" class="form-label">Password</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-solid fa-lock"></i>
-                    </span>
-                    <input
-                      type="password"
-                      id="register-password"
-                      name="password"
-                      class="form-input form-input--has-toggle"
-                      placeholder="Create a strong password"
-                      autocomplete="new-password"
-                      required
-                      aria-describedby="register-password-error password-strength-text"
-                    />
-                    <button
-                      type="button"
-                      class="password-toggle"
-                      data-target="register-password"
-                      aria-label="Show password"
-                      aria-pressed="false"
-                    >
-                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                    </button>
-                  </div>
-
-                  <!-- Password Strength Indicator -->
-                  <div class="strength-meter" id="strength-meter" data-strength="0">
-                    <div class="strength-meter__header">
-                      <span class="strength-meter__title">Strength</span>
-                      <span id="password-strength-text" class="strength-meter__label">Enter password</span>
-                    </div>
-                    <div class="strength-meter__bars" aria-hidden="true">
-                      <span class="strength-bar"></span>
-                      <span class="strength-bar"></span>
-                      <span class="strength-bar"></span>
-                      <span class="strength-bar"></span>
-                    </div>
-                    <ul class="strength-rules" aria-label="Password requirements">
-                      <li data-rule="length"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> 8+ chars</li>
-                      <li data-rule="upper"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Uppercase</li>
-                      <li data-rule="number"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Number</li>
-                      <li data-rule="special"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Symbol</li>
-                    </ul>
-                  </div>
-
-                  <p id="register-password-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-group">
-                  <label for="register-confirm" class="form-label">Confirm Password</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-solid fa-shield-halved"></i>
-                    </span>
-                    <input
-                      type="password"
-                      id="register-confirm"
-                      name="confirmPassword"
-                      class="form-input form-input--has-toggle"
-                      placeholder="Repeat your password"
-                      autocomplete="new-password"
-                      required
-                      aria-describedby="register-confirm-error"
-                    />
-                    <button
-                      type="button"
-                      class="password-toggle"
-                      data-target="register-confirm"
-                      aria-label="Show password"
-                      aria-pressed="false"
-                    >
-                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                    </button>
-                  </div>
-                  <p id="register-confirm-error" class="field-error" role="alert"></p>
-                </div>
-
-                <div class="form-group form-group--compact">
-                  <label class="checkbox-label">
-                    <input type="checkbox" id="register-terms" class="checkbox-input" />
-                    <span class="checkbox-box" aria-hidden="true">
-                      <i class="fa-solid fa-check"></i>
-                    </span>
-                    <span class="checkbox-text">
-                      Simulated demo only — no real credentials are stored.
-                    </span>
-                  </label>
-                  <p id="register-terms-error" class="field-error" role="alert"></p>
-                </div>
-
-                <button type="submit" id="register-submit" class="btn btn--primary">
-                  <span class="btn__content">
-                    <span>Create Account</span>
-                    <i class="fa-solid fa-arrow-right btn__arrow" aria-hidden="true"></i>
-                  </span>
-                  <span class="btn__loader" aria-hidden="true">
-                    <span class="spinner"></span>
-                    <span>Creating account...</span>
-                  </span>
-                </button>
-
-                <p class="form-switch">
-                  Already have an account?
-                  <button type="button" class="text-link text-link--strong" data-switch-view="login">
-                    Sign in
-                  </button>
-                </p>
-              </form>
-            </div>
-
-            <!-- ==================== FORGOT PASSWORD VIEW ==================== -->
-            <div id="view-forgot" class="auth-view" hidden>
-              <button type="button" class="back-btn" data-switch-view="login">
-                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-                <span>Back to Sign In</span>
-              </button>
-
-              <div class="view-header">
-                <h2 class="view-header__title">Reset Password</h2>
-                <p class="view-header__desc">
-                  Enter your email address and we'll simulate sending a recovery link.
-                </p>
-              </div>
-
-              <form id="forgot-form" class="auth-form" novalidate>
-                <div class="form-group">
-                  <label for="forgot-email" class="form-label">Email Address</label>
-                  <div class="input-wrapper">
-                    <span class="input-icon" aria-hidden="true">
-                      <i class="fa-regular fa-envelope"></i>
-                    </span>
-                    <input
-                      type="email"
-                      id="forgot-email"
-                      name="email"
-                      class="form-input"
-                      placeholder="name@example.com"
-                      autocomplete="email"
-                      required
-                      aria-describedby="forgot-email-error"
-                    />
-                    <span class="input-status-icon" aria-hidden="true"></span>
-                  </div>
-                  <p id="forgot-email-error" class="field-error" role="alert"></p>
-                </div>
-
-                <button type="submit" id="forgot-submit" class="btn btn--primary">
-                  <span class="btn__content">
-                    <span>Send Reset Link</span>
-                    <i class="fa-regular fa-paper-plane btn__arrow" aria-hidden="true"></i>
-                  </span>
-                  <span class="btn__loader" aria-hidden="true">
-                    <span class="spinner"></span>
-                    <span>Sending link...</span>
-                  </span>
-                </button>
-              </form>
-
-              <!-- Simulated Reset Sent State -->
-              <div id="forgot-sent-box" class="reset-sent-box" hidden>
-                <div class="reset-sent-box__icon" aria-hidden="true">
-                  <i class="fa-solid fa-envelope-circle-check"></i>
-                </div>
-                <h3 class="reset-sent-box__title">Check your inbox</h3>
-                <p class="reset-sent-box__desc">
-                  In a real environment, a password reset link would be sent to
-                  <strong id="forgot-sent-email"></strong>.
-                </p>
-                <div class="reset-sent-box__actions">
-                  <button type="button" class="btn btn--primary" data-switch-view="login">
-                    <span class="btn__content">
-                      <span>Return to Sign In</span>
-                      <i class="fa-solid fa-arrow-right btn__arrow" aria-hidden="true"></i>
-                    </span>
-                  </button>
-                  <button type="button" id="forgot-resend-btn" class="text-link">
-                    Try another email address
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <!-- ==================== SIMULATED AUTH SUCCESS VIEW ==================== -->
-            <div id="view-success" class="auth-view" hidden>
-              <div class="success-card">
-                <div class="success-card__badge" aria-hidden="true">
-                  <i class="fa-solid fa-check"></i>
-                </div>
-                <h2 id="success-title" class="success-card__title">Signed in successfully</h2>
-                <p id="success-desc" class="success-card__desc">
-                  Simulated session started for <strong id="success-user-email"></strong>.
-                </p>
-
-                <div class="success-card__meta">
-                  <div class="meta-pill">
-                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-                    <span>Demo Mode Only</span>
-                  </div>
-                  <div class="meta-pill">
-                    <i class="fa-solid fa-lock-open" aria-hidden="true"></i>
-                    <span>No Password Stored</span>
-                  </div>
-                </div>
-
-                <button type="button" id="demo-signout-btn" class="btn btn--primary">
-                  <span class="btn__content">
-                    <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
-                    <span>Sign Out &amp; Reset Demo</span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Minimal Notion Callout Demo Notice -->
-          <div class="demo-notice" role="note">
-            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
-            <span>Interactive UI demo — simulated auth only. Do not enter real passwords.</span>
+          <p class="template-card__desc">
+            Distraction-free single-column Notion document with top accent bar and command strip.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/2/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
           </div>
         </div>
-      </section>
+      </a>
+
+      <a href="./3/" class="template-card" data-category="split">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-3.png" alt="Layout 03 — Full-Height 50/50 Split Screen preview" loading="lazy" />
+          <span class="thumb-num">03</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Full-Height 50/50 Split</h2>
+            <span class="cat-tag">Split</span>
+          </div>
+          <p class="template-card__desc">
+            Edge-to-edge architectural split with numbered overview on the left and clean form pane.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/3/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./4/" class="template-card" data-category="split">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-4.png" alt="Layout 04 — Left Card + Right Workspace Board preview" loading="lazy" />
+          <span class="thumb-num">04</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Left Card + Workspace Board</h2>
+            <span class="cat-tag">Split</span>
+          </div>
+          <p class="template-card__desc">
+            Reversed asymmetric layout with left-anchored auth card and modular Notion board on the right.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/4/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./5/" class="template-card" data-category="shell">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-5.png" alt="Layout 05 — Notion Sidebar App Shell preview" loading="lazy" />
+          <span class="thumb-num">05</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Notion Sidebar App Shell</h2>
+            <span class="cat-tag">App Shell</span>
+          </div>
+          <p class="template-card__desc">
+            Persistent left workspace navigation rail with quick tools, live status, and centered form.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/5/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./6/" class="template-card" data-category="centered">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-6.png" alt="Layout 06 — Framed Editorial Horizontal Card preview" loading="lazy" />
+          <span class="thumb-num">06</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Framed Editorial Window</h2>
+            <span class="cat-tag">Centered</span>
+          </div>
+          <p class="template-card__desc">
+            Framed horizontal window with top bar, workspace metrics column, and right auth panel.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/6/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./7/" class="template-card" data-category="centered">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-7.png" alt="Layout 07 — Command Modal Spotlight Style preview" loading="lazy" />
+          <span class="thumb-num">07</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">Command Modal</h2>
+            <span class="cat-tag">Centered</span>
+          </div>
+          <p class="template-card__desc">
+            Spotlight-style flat command window over a subtle grid with side-by-side actions.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/7/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
+
+      <a href="./8/" class="template-card" data-category="shell">
+        <div class="template-card__thumb">
+          <img src="./screenshots/layout-8.png" alt="Layout 08 — Asymmetric 65/35 Split with Right Drawer preview" loading="lazy" />
+          <span class="thumb-num">08</span>
+        </div>
+        <div class="template-card__body">
+          <div class="template-card__top">
+            <h2 class="template-card__title">65/35 Editorial + Drawer</h2>
+            <span class="cat-tag">App Shell</span>
+          </div>
+          <p class="template-card__desc">
+            Wide editorial quote &amp; activity canvas paired with a full-height docked right auth drawer.
+          </p>
+          <div class="template-card__foot">
+            <span class="path-label">/8/</span>
+            <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </div>
+      </a>
     </main>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="site-footer__inner">
-        <span class="footer-copy">&copy; 2026 DenisVargaeu</span>
-        <span class="footer-sep" aria-hidden="true">&bull;</span>
-        <span class="footer-version">v1.0.0</span>
-        <span class="footer-sep" aria-hidden="true">&bull;</span>
-        <span class="footer-demo">Simulated Auth Demo</span>
-      </div>
+    <footer class="hub-footer">
+      <span>&copy; 2026 DenisVargaeu</span>
+      <span aria-hidden="true">&bull;</span>
+      <span class="footer-version">v1.0.0</span>
+      <span aria-hidden="true">&bull;</span>
+      <span>Pure HTML5, CSS3 &amp; Vanilla JS &mdash; Simulated Auth Demo</span>
     </footer>
   </div>
 

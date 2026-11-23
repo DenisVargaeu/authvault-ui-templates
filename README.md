@@ -80,7 +80,7 @@ Wide editorial canvas with a Notion-style blockquote and live activity timeline 
 
 ```text
 authvault-ui-templates/
-├── index.html          # Default layout (Layout 1)
+├── index.html          # Template directory hub (links to /1 - /8)
 ├── style.css
 ├── script.js
 ├── 1/                  # Layout 1: Right Editorial Split
