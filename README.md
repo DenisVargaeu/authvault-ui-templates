@@ -1,6 +1,6 @@
-# AuthVault — Modern Login System (Demo)
+# authvault-ui-templates
 
-A collection of **8 flat, Notion-inspired authentication UI layouts** built with pure **HTML5, CSS3, and Vanilla JavaScript** — zero frameworks, warm espresso & paper color palettes, zero emojis, full Dark/Light theme support, and simulated client-side authentication.
+A collection of **8 flat, Notion-inspired authentication UI templates** built with pure **HTML5, CSS3, and Vanilla JavaScript** — zero frameworks, warm espresso & paper color palettes, zero emojis, full Dark/Light theme support, and simulated client-side authentication.
 
 > **Demo Notice:** This project uses simulated authentication only. No real passwords or credentials are collected, transmitted, or stored.
 
@@ -79,7 +79,7 @@ Wide editorial canvas with a Notion-style blockquote and live activity timeline 
 ## Project Structure
 
 ```text
-login/
+authvault-ui-templates/
 ├── index.html          # Default layout (Layout 1)
 ├── style.css
 ├── script.js
