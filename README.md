@@ -2,10 +2,11 @@
 
 # authvault-ui-templates
 
-**48 flat, Notion-inspired UI templates across 6 categories — built with pure HTML5, CSS3, and Vanilla JavaScript.**
+**72 flat, Notion-inspired UI templates across 6 categories (8 desktop-responsive + 4 dedicated Mobile-First layouts each) — built with pure HTML5, CSS3, and Vanilla JavaScript.**
 
-[![Templates](https://img.shields.io/badge/Templates-48-a67b5b?style=flat-square&labelColor=1a1613)](#template-galleries)
-[![Categories](https://img.shields.io/badge/Categories-6_×_8-a67b5b?style=flat-square&labelColor=1a1613)](#category-overview)
+[![Templates](https://img.shields.io/badge/Templates-72-a67b5b?style=flat-square&labelColor=1a1613)](#template-galleries)
+[![Categories](https://img.shields.io/badge/Categories-6_×_12-a67b5b?style=flat-square&labelColor=1a1613)](#category-overview)
+[![Mobile-First](https://img.shields.io/badge/Mobile--First-24_Templates-a67b5b?style=flat-square&labelColor=1a1613)](#mobile-first-layouts-09--12)
 [![Stack](https://img.shields.io/badge/Stack-HTML5_%7C_CSS3_%7C_Vanilla_JS-a67b5b?style=flat-square&labelColor=1a1613)](#quick-start)
 [![Themes](https://img.shields.io/badge/Themes-Espresso_Dark_%26_Warm_Paper-a67b5b?style=flat-square&labelColor=1a1613)](#design-system)
 [![Version](https://img.shields.io/badge/Version-v1.0.0-a67b5b?style=flat-square&labelColor=1a1613)](#project-structure)
@@ -44,12 +45,32 @@ Open the root [index.html](./index.html) to browse all 48 templates from a singl
 
 | Category | Layouts | Folder | Key Interactive Features | Jump |
 |---|---|---|---|---|
-| **Login & Authentication** | `8` | `/login/1` – `/login/8` | Login/Register tabs, live email & password validation, 4-level strength meter, Forgot Password flow, demo autofill, toast notifications | [View Gallery](#1-login--authentication) |
-| **Workspace Dashboards** | `8` | `/dashboard/1` – `/dashboard/8` | KPI telemetry cards, searchable & filterable access log, simulated live event generator, Kanban status board, security checklist | [View Gallery](#2-workspace-dashboards) |
-| **Account & Settings** | `8` | `/settings/1` – `/settings/8` | Profile, Security, and Notifications sections, custom flat toggle switches, simulated save feedback | [View Gallery](#3-account--workspace-settings) |
-| **Onboarding Wizards** | `8` | `/onboarding/1` – `/onboarding/8` | 3-step interactive setup stepper, team size selector, live-updating workspace preview, launch summary | [View Gallery](#4-onboarding-wizards) |
-| **Plans & Pricing** | `8` | `/pricing/1` – `/pricing/8` | Monthly / Yearly (`-20%`) billing switcher, 3-tier grids, horizontal rows, feature comparison matrix, summary drawer | [View Gallery](#5-plans--pricing) |
-| **Errors & System Status** | `8` | `/errors/1` – `/errors/8` | `404`, `403`, `500` with service health checklist, and `503` Maintenance Mode with quick recovery navigation | [View Gallery](#6-errors--system-status) |
+| **Login & Authentication** | `12` (`8` + `4` Mobile) | `/login/1` – `/login/12` | Login/Register tabs, live validation, 4-level strength meter, Forgot Password, demo autofill, mobile bottom sheet & tab shells | [View Gallery](#1-login--authentication) |
+| **Workspace Dashboards** | `12` (`8` + `4` Mobile) | `/dashboard/1` – `/dashboard/12` | KPI telemetry cards, searchable & filterable access log, live event generator, Kanban board, mobile bottom-tab & thumb-zone views | [View Gallery](#2-workspace-dashboards) |
+| **Account & Settings** | `12` (`8` + `4` Mobile) | `/settings/1` – `/settings/12` | Profile, Security, Notifications sections, custom flat switches, mobile accordions & sticky save bar | [View Gallery](#3-account--workspace-settings) |
+| **Onboarding Wizards** | `12` (`8` + `4` Mobile) | `/onboarding/1` – `/onboarding/12` | 3-step interactive setup stepper, team size picker, live workspace preview, swipeable mobile pill steps | [View Gallery](#4-onboarding-wizards) |
+| **Plans & Pricing** | `12` (`8` + `4` Mobile) | `/pricing/1` – `/pricing/12` | Monthly / Yearly (`-20%`) billing switcher, 3-tier grids, feature comparison matrix, mobile accordion plans | [View Gallery](#5-plans--pricing) |
+| **Errors & System Status** | `12` (`8` + `4` Mobile) | `/errors/1` – `/errors/12` | `404`, `403`, `500` with service health checklist, `503` Maintenance Mode, mobile recovery sheets | [View Gallery](#6-errors--system-status) |
+
+---
+
+## Mobile-First Layouts (`09` – `12`)
+
+Every single category includes **4 dedicated Mobile-First responsive templates** (`09`–`12`, **24 total**), authored mobile-first (`360px`–`480px` base, progressively enhanced via `@media (min-width: 640px)`), featuring `48px` touch targets, `100dvh` safe viewport height, and zero horizontal overflow:
+
+- **`09` — Mobile Bottom Sheet**: Compact top hero band paired with a rising Notion bottom sheet.
+- **`10` — Mobile Tab-Bar Shell**: Native-feeling app shell with a fixed 4-item bottom navigation bar.
+- **`11` — Mobile Thumb-Zone Deck**: One-handed ergonomics with a sticky bottom primary action bar.
+- **`12` — Mobile Pill & Accordion**: Swipeable horizontal pill tabs and collapsible accordion cards.
+
+<table>
+  <tr>
+    <td width="25%"><img src="./screenshots/login-9.png" alt="Login 09 Mobile Bottom Sheet" /><br /><strong>Login 09</strong> (<code>/login/9/</code>)</td>
+    <td width="25%"><img src="./screenshots/dashboard-10.png" alt="Dashboard 10 Mobile Tab-Bar" /><br /><strong>Dashboard 10</strong> (<code>/dashboard/10/</code>)</td>
+    <td width="25%"><img src="./screenshots/settings-11.png" alt="Settings 11 Mobile Thumb-Zone" /><br /><strong>Settings 11</strong> (<code>/settings/11/</code>)</td>
+    <td width="25%"><img src="./screenshots/pricing-12.png" alt="Pricing 12 Mobile Accordion" /><br /><strong>Pricing 12</strong> (<code>/pricing/12/</code>)</td>
+  </tr>
+</table>
 
 ---
 
@@ -344,16 +365,16 @@ Because every template is completely self-contained (`index.html`, `style.css`, 
 
 ```text
 authvault-ui-templates/
-├── index.html              # Interactive Directory Hub (48 templates)
+├── index.html              # Interactive Directory Hub (72 templates)
 ├── style.css               # Hub styles
 ├── script.js               # Hub catalog renderer, filters & theme sync
-├── login/1..8/             # 8 Authentication & Login layouts
-├── dashboard/1..8/         # 8 Workspace Dashboard layouts
-├── settings/1..8/          # 8 Account & Workspace Settings layouts
-├── onboarding/1..8/        # 8 Onboarding Wizard layouts
-├── pricing/1..8/           # 8 Plans & Pricing layouts
-├── errors/1..8/            # 8 Error & System Status layouts
-├── screenshots/            # 49 rendered desktop previews (1440x900)
+├── login/1..12/            # 8 responsive + 4 mobile-first Login layouts
+├── dashboard/1..12/        # 8 responsive + 4 mobile-first Dashboard layouts
+├── settings/1..12/         # 8 responsive + 4 mobile-first Settings layouts
+├── onboarding/1..12/       # 8 responsive + 4 mobile-first Onboarding layouts
+├── pricing/1..12/          # 8 responsive + 4 mobile-first Pricing layouts
+├── errors/1..12/           # 8 responsive + 4 mobile-first Error layouts
+├── screenshots/            # 73 rendered previews (hub + all 72 layouts)
 └── README.md
 ```
 

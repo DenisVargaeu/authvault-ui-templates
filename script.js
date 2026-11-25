@@ -1,6 +1,6 @@
 /**
  * authvault-ui-templates — Root Directory Hub Script
- * Renders all 48 templates (6 categories x 8 layouts), category filtering & shared Dark/Light theme.
+ * Renders all 72 templates (6 categories x 12 layouts: 8 responsive + 4 mobile-first).
  */
 
 (() => {
@@ -13,11 +13,18 @@
   const filterButtons = document.querySelectorAll(".filter-btn");
   const sectionsStack = document.getElementById("sections-stack");
 
+  const MOBILE_ITEMS = [
+    { n: 9, name: "Mobile Bottom Sheet", desc: "Mobile-first hero band + rising bottom-sheet card with 48px touch targets.", mobile: true },
+    { n: 10, name: "Mobile Tab-Bar Shell", desc: "Native-style mobile app shell with fixed 4-item bottom navigation bar.", mobile: true },
+    { n: 11, name: "Mobile Thumb-Zone Deck", desc: "One-handed layout with sticky bottom primary action bar.", mobile: true },
+    { n: 12, name: "Mobile Pill & Accordion", desc: "Swipeable horizontal pills and compact collapsible sections.", mobile: true },
+  ];
+
   const CATALOG = [
     {
       id: "login",
       title: "Login & Authentication",
-      pathHint: "/login/1 - /login/8",
+      pathHint: "/login/1 - /login/12",
       tag: "Login",
       items: [
         { n: 1, name: "Right Editorial Split", desc: "Left workspace canvas with line art & live inspector, right auth card.", img: "./screenshots/layout-1.png" },
@@ -28,12 +35,13 @@
         { n: 6, name: "Framed Editorial Window", desc: "Framed horizontal card with top action bar and live metrics.", img: "./screenshots/layout-6.png" },
         { n: 7, name: "Command Modal", desc: "Spotlight-style flat command window over subtle grid.", img: "./screenshots/layout-7.png" },
         { n: 8, name: "65/35 Editorial + Drawer", desc: "Wide editorial quote & timeline paired with full-height right drawer.", img: "./screenshots/layout-8.png" },
+        ...MOBILE_ITEMS,
       ],
     },
     {
       id: "dashboard",
       title: "Workspace Dashboards",
-      pathHint: "/dashboard/1 - /dashboard/8",
+      pathHint: "/dashboard/1 - /dashboard/12",
       tag: "Dashboard",
       items: [
         { n: 1, name: "Sidebar Overview", desc: "Classic left sidebar, 4 KPIs, searchable access log & checklist." },
@@ -44,12 +52,13 @@
         { n: 6, name: "Framed Workspace Window", desc: "Centered framed application window with full telemetry controls." },
         { n: 7, name: "Command Search Dashboard", desc: "Search-first minimal dashboard over an architectural line grid." },
         { n: 8, name: "65/35 Executive + Drawer", desc: "Wide KPI & table canvas with full-height live telemetry right drawer." },
+        ...MOBILE_ITEMS,
       ],
     },
     {
       id: "settings",
       title: "Account & Workspace Settings",
-      pathHint: "/settings/1 - /settings/8",
+      pathHint: "/settings/1 - /settings/12",
       tag: "Settings",
       items: [
         { n: 1, name: "Left Nav Rail + Card", desc: "Classic Notion left navigation column with tabbed form card." },
@@ -60,12 +69,13 @@
         { n: 6, name: "Framed Window", desc: "Centered framed window housing two-column account settings." },
         { n: 7, name: "Command Modal", desc: "Spotlight-style compact modal for quick preference adjustments." },
         { n: 8, name: "Stacked Property Cards", desc: "All profile, security, and notification settings visible on one page." },
+        ...MOBILE_ITEMS,
       ],
     },
     {
       id: "onboarding",
       title: "Onboarding Wizards",
-      pathHint: "/onboarding/1 - /onboarding/8",
+      pathHint: "/onboarding/1 - /onboarding/12",
       tag: "Onboarding",
       items: [
         { n: 1, name: "Centered Stepper Card", desc: "Classic 3-step centered Notion wizard with progress pills." },
@@ -76,12 +86,13 @@
         { n: 6, name: "Framed Setup Window", desc: "Horizontal framed setup window combining wizard and live preview." },
         { n: 7, name: "Spotlight Command Setup", desc: "Compact terminal-bar modal (`authvault://setup`) over grid." },
         { n: 8, name: "65/35 Quote + Drawer", desc: "Minimal editorial quote on left with docked right setup drawer." },
+        ...MOBILE_ITEMS,
       ],
     },
     {
       id: "pricing",
       title: "Plans & Pricing",
-      pathHint: "/pricing/1 - /pricing/8",
+      pathHint: "/pricing/1 - /pricing/12",
       tag: "Pricing",
       items: [
         { n: 1, name: "3-Column Classic Grid", desc: "Centered three-tier grid with Monthly / Yearly (-20%) toggle." },
@@ -92,12 +103,13 @@
         { n: 6, name: "Framed Pricing Window", desc: "All three plans inside a framed window with header billing toggle." },
         { n: 7, name: "Two-Tier Focus", desc: "Minimal high-contrast Starter vs Pro Team layout over grid." },
         { n: 8, name: "65/35 + Summary Drawer", desc: "Selectable tiers on the left with docked billing summary drawer." },
+        ...MOBILE_ITEMS,
       ],
     },
     {
       id: "errors",
       title: "Errors & System Status",
-      pathHint: "/errors/1 - /errors/8",
+      pathHint: "/errors/1 - /errors/12",
       tag: "System",
       items: [
         { n: 1, name: "Minimal Centered 404", desc: "Clean flat 404 Not Found card over subtle dot grid." },
@@ -108,6 +120,7 @@
         { n: 6, name: "Framed Diagnostic Window", desc: "Terminal-bar framed error window (`authvault://error/404`)." },
         { n: 7, name: "Spotlight Quick-Recovery", desc: "Compact centered recovery modal over architectural line grid." },
         { n: 8, name: "65/35 Maintenance Mode", desc: "Wide 503 maintenance notice paired with right status drawer." },
+        ...MOBILE_ITEMS,
       ],
     },
   ];
@@ -119,8 +132,9 @@
           const img = item.img || `./screenshots/${cat.id}-${item.n}.png`;
           const href = `./${cat.id}/${item.n}/`;
           const num = String(item.n).padStart(2, "0");
+          const tagLabel = item.mobile ? "Mobile-First" : cat.tag;
           return `
-            <a href="${href}" class="template-card" data-category="${cat.id}">
+            <a href="${href}" class="template-card" data-category="${cat.id}" data-mobile="${item.mobile ? "true" : "false"}">
               <div class="template-card__thumb">
                 <img src="${img}" alt="${cat.title} ${num} — ${item.name}" loading="lazy" />
                 <span class="thumb-num">${num}</span>
@@ -128,7 +142,7 @@
               <div class="template-card__body">
                 <div class="template-card__top">
                   <h3 class="template-card__title">${item.name}</h3>
-                  <span class="cat-tag">${cat.tag}</span>
+                  <span class="cat-tag">${tagLabel}</span>
                 </div>
                 <p class="template-card__desc">${item.desc}</p>
                 <div class="template-card__foot">
@@ -184,8 +198,20 @@
       btn.addEventListener("click", () => {
         const filter = btn.dataset.filter;
         filterButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
+
+        document.querySelectorAll(".template-card").forEach((card) => {
+          if (filter === "all") {
+            card.hidden = false;
+          } else if (filter === "mobile") {
+            card.hidden = card.dataset.mobile !== "true";
+          } else {
+            card.hidden = card.dataset.category !== filter;
+          }
+        });
+
         document.querySelectorAll(".cat-section").forEach((sec) => {
-          sec.hidden = filter !== "all" && sec.dataset.sectionCat !== filter;
+          const visible = sec.querySelectorAll(".template-card:not([hidden])").length;
+          sec.hidden = visible === 0;
         });
       });
     });
