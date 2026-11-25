@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="authvault-ui-templates — 72 flat, Notion-inspired UI templates across 6 categories (8 desktop + 4 mobile-first each)." />
+  <meta name="description" content="authvault-ui-templates — Interactive directory of 72 flat, Notion-inspired UI templates across 6 categories." />
   <title>authvault-ui-templates — 72 UI Templates</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,18 +22,19 @@
   <div class="bg-grid" aria-hidden="true"></div>
 
   <div class="hub-shell">
-    <!-- Top Bar -->
+    <!-- Top Utility Bar -->
     <header class="hub-topbar">
       <div class="brand-chip">
         <span class="brand-chip__icon" aria-hidden="true">
           <i class="fa-solid fa-shield-halved"></i>
         </span>
         <span class="brand-chip__name">authvault-ui-templates</span>
-        <span class="badge">72 Templates</span>
+        <span class="badge">v1.0.0</span>
       </div>
 
       <div class="topbar-actions">
-        <span class="kbd-hint" aria-hidden="true"><kbd>Alt</kbd> + <kbd>T</kbd></span>
+        <span class="kbd-hint" aria-hidden="true"><kbd>/</kbd> Search</span>
+        <span class="kbd-hint" aria-hidden="true"><kbd>Alt</kbd> + <kbd>T</kbd> Theme</span>
         <button
           type="button"
           id="theme-toggle"
@@ -51,15 +52,36 @@
       </div>
     </header>
 
-    <!-- Editorial Intro + Category Filter Bar -->
+    <!-- Editorial Hero + Compact Stats -->
     <section class="hub-hero" aria-label="Collection overview">
       <div class="hub-hero__copy">
-        <span class="eyebrow">UI Template Directory</span>
-        <h1 class="hub-title">6 categories. 12 layouts each.</h1>
+        <span class="eyebrow">Notion-Style UI Kit</span>
+        <h1 class="hub-title">72 flat templates. Zero frameworks.</h1>
         <p class="hub-desc">
-          Seventy-two standalone flat warm-brown Notion-style templates built with pure HTML5, CSS3,
-          and Vanilla JavaScript — 8 desktop-responsive + 4 dedicated Mobile-First layouts per category.
+          Six product categories with 8 desktop-responsive and 4 dedicated Mobile-First layouts each.
+          Built in pure HTML5, CSS3, and Vanilla JavaScript with shared Espresso Dark &amp; Warm Paper Light themes.
         </p>
+      </div>
+
+      <div class="stats-strip" aria-label="Library metrics">
+        <div class="stat-pill"><strong>72</strong><span>Templates</span></div>
+        <div class="stat-pill"><strong>6</strong><span>Categories</span></div>
+        <div class="stat-pill"><strong>24</strong><span>Mobile-First</span></div>
+        <div class="stat-pill"><strong>0 KB</strong><span>Frameworks</span></div>
+      </div>
+    </section>
+
+    <!-- Sticky Search & Category Filter Toolbar -->
+    <div class="toolbar" role="region" aria-label="Search and filter templates">
+      <div class="search-field">
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input
+          type="search"
+          id="hub-search"
+          placeholder="Search templates (e.g. kanban, 404, mobile, drawer, pricing)..."
+          aria-label="Search templates"
+        />
+        <span id="results-count" class="results-count">72 / 72</span>
       </div>
 
       <div class="filter-bar" role="group" aria-label="Filter pages by category">
@@ -72,9 +94,16 @@
         <button type="button" class="filter-btn" data-filter="pricing">Pricing (12)</button>
         <button type="button" class="filter-btn" data-filter="errors">Errors (12)</button>
       </div>
-    </section>
+    </div>
 
+    <!-- Categorized Gallery Stack -->
     <main class="sections-stack" id="sections-stack"></main>
+
+    <!-- Empty Search State -->
+    <div id="empty-state" class="empty-state" hidden>
+      <p>No templates match your current filter.</p>
+      <button type="button" id="reset-filters-btn" class="reset-btn">Reset filters</button>
+    </div>
 
     <!-- Footer -->
     <footer class="hub-footer">
@@ -82,8 +111,43 @@
       <span aria-hidden="true">&bull;</span>
       <span class="footer-version">v1.0.0</span>
       <span aria-hidden="true">&bull;</span>
-      <span>72 Pure HTML, CSS &amp; Vanilla JS Templates &mdash; Simulated UI Demo</span>
+      <span>72 Pure HTML5, CSS3 &amp; Vanilla JS Templates &mdash; Simulated UI Demo</span>
     </footer>
+  </div>
+
+  <!-- Live Iframe Preview Modal (Desktop / Mobile Toggle) -->
+  <div id="preview-modal" class="preview-modal" role="dialog" aria-modal="true" aria-labelledby="preview-title" hidden>
+    <div class="preview-backdrop" data-close-modal></div>
+    <div class="preview-dialog">
+      <header class="preview-bar">
+        <div class="preview-bar__info">
+          <strong id="preview-title">Template Preview</strong>
+          <span id="preview-path" class="preview-path">/login/1/</span>
+        </div>
+        <div class="preview-bar__controls">
+          <div class="viewport-switch" role="group" aria-label="Preview viewport size">
+            <button type="button" class="vp-btn is-active" data-vp="desktop" title="Desktop preview">
+              <i class="fa-solid fa-desktop" aria-hidden="true"></i>
+              <span>Desktop</span>
+            </button>
+            <button type="button" class="vp-btn" data-vp="mobile" title="Mobile preview (390px)">
+              <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
+              <span>Mobile</span>
+            </button>
+          </div>
+          <a id="preview-open-link" href="./login/1/" class="preview-open-btn">
+            <span>Open Page</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <button type="button" class="preview-close-btn" data-close-modal aria-label="Close preview">
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+        </div>
+      </header>
+      <div class="preview-stage" id="preview-stage">
+        <iframe id="preview-frame" title="Live template preview"></iframe>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>

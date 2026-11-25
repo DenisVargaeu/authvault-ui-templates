@@ -1,6 +1,7 @@
 /**
- * authvault-ui-templates — Root Directory Hub Script
- * Renders all 72 templates (6 categories x 12 layouts: 8 responsive + 4 mobile-first).
+ * authvault-ui-templates — Interactive Main Directory Hub Script
+ * Renders all 72 templates, live search (/ shortcut), category & mobile-first filtering,
+ * live Desktop/Mobile iframe preview modal, and shared Dark/Light theme sync (Alt+T).
  */
 
 (() => {
@@ -12,6 +13,21 @@
   const themeToggleLabel = document.getElementById("theme-toggle-label");
   const filterButtons = document.querySelectorAll(".filter-btn");
   const sectionsStack = document.getElementById("sections-stack");
+  const searchInput = document.getElementById("hub-search");
+  const resultsCount = document.getElementById("results-count");
+  const emptyState = document.getElementById("empty-state");
+  const resetFiltersBtn = document.getElementById("reset-filters-btn");
+
+  // Preview Modal Elements
+  const previewModal = document.getElementById("preview-modal");
+  const previewTitle = document.getElementById("preview-title");
+  const previewPath = document.getElementById("preview-path");
+  const previewOpenLink = document.getElementById("preview-open-link");
+  const previewStage = document.getElementById("preview-stage");
+  const previewFrame = document.getElementById("preview-frame");
+  const vpButtons = document.querySelectorAll(".vp-btn");
+
+  let activeFilter = "all";
 
   const MOBILE_ITEMS = [
     { n: 9, name: "Mobile Bottom Sheet", desc: "Mobile-first hero band + rising bottom-sheet card with 48px touch targets.", mobile: true },
@@ -133,12 +149,14 @@
           const href = `./${cat.id}/${item.n}/`;
           const num = String(item.n).padStart(2, "0");
           const tagLabel = item.mobile ? "Mobile-First" : cat.tag;
+          const searchBlob = `${cat.id} ${cat.title} ${num} ${item.name} ${item.desc} ${tagLabel}`.toLowerCase();
+
           return `
-            <a href="${href}" class="template-card" data-category="${cat.id}" data-mobile="${item.mobile ? "true" : "false"}">
-              <div class="template-card__thumb">
+            <article class="template-card" data-category="${cat.id}" data-mobile="${item.mobile ? "true" : "false"}" data-search="${searchBlob}">
+              <a href="${href}" class="template-card__thumb">
                 <img src="${img}" alt="${cat.title} ${num} — ${item.name}" loading="lazy" />
                 <span class="thumb-num">${num}</span>
-              </div>
+              </a>
               <div class="template-card__body">
                 <div class="template-card__top">
                   <h3 class="template-card__title">${item.name}</h3>
@@ -147,10 +165,20 @@
                 <p class="template-card__desc">${item.desc}</p>
                 <div class="template-card__foot">
                   <span class="path-label">/${cat.id}/${item.n}/</span>
-                  <span class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                  <div class="card-actions">
+                    <button
+                      type="button"
+                      class="preview-btn"
+                      data-preview-url="${href}"
+                      data-preview-title="${cat.title} ${num} — ${item.name}"
+                      data-preview-path="/${cat.id}/${item.n}/"
+                      data-preview-mobile="${item.mobile ? "true" : "false"}"
+                    >Preview</button>
+                    <a href="${href}" class="open-link">Open <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                  </div>
                 </div>
               </div>
-            </a>`;
+            </article>`;
         })
         .join("");
 
@@ -163,6 +191,51 @@
           <div class="gallery-grid">${cardsHtml}</div>
         </section>`;
     }).join("");
+  }
+
+  function applyFilters() {
+    const query = (searchInput.value || "").trim().toLowerCase();
+    let visibleTotal = 0;
+
+    document.querySelectorAll(".template-card").forEach((card) => {
+      const catMatch =
+        activeFilter === "all" ||
+        (activeFilter === "mobile" ? card.dataset.mobile === "true" : card.dataset.category === activeFilter);
+      const queryMatch = !query || card.dataset.search.includes(query);
+      const show = catMatch && queryMatch;
+      card.hidden = !show;
+      if (show) visibleTotal += 1;
+    });
+
+    document.querySelectorAll(".cat-section").forEach((sec) => {
+      const visible = sec.querySelectorAll(".template-card:not([hidden])").length;
+      sec.hidden = visible === 0;
+    });
+
+    resultsCount.textContent = `${visibleTotal} / 72`;
+    emptyState.hidden = visibleTotal > 0;
+  }
+
+  function setViewportMode(mode) {
+    const isMob = mode === "mobile";
+    previewStage.classList.toggle("is-mobile", isMob);
+    vpButtons.forEach((b) => b.classList.toggle("is-active", b.dataset.vp === mode));
+  }
+
+  function openPreview({ url, title, path, mobile }) {
+    previewTitle.textContent = title;
+    previewPath.textContent = path;
+    previewOpenLink.href = url;
+    previewFrame.src = url;
+    setViewportMode(mobile ? "mobile" : "desktop");
+    previewModal.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closePreview() {
+    previewModal.hidden = true;
+    previewFrame.src = "about:blank";
+    document.body.style.overflow = "";
   }
 
   function applyTheme(theme) {
@@ -184,42 +257,63 @@
       applyTheme(next);
       try { localStorage.setItem(THEME_KEY, next); } catch {}
     });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.altKey && event.key.toLowerCase() === "t") {
-        event.preventDefault();
-        themeToggleBtn.click();
-      }
-    });
-  }
-
-  function initFilters() {
-    filterButtons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const filter = btn.dataset.filter;
-        filterButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
-
-        document.querySelectorAll(".template-card").forEach((card) => {
-          if (filter === "all") {
-            card.hidden = false;
-          } else if (filter === "mobile") {
-            card.hidden = card.dataset.mobile !== "true";
-          } else {
-            card.hidden = card.dataset.category !== filter;
-          }
-        });
-
-        document.querySelectorAll(".cat-section").forEach((sec) => {
-          const visible = sec.querySelectorAll(".template-card:not([hidden])").length;
-          sec.hidden = visible === 0;
-        });
-      });
-    });
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     renderCatalog();
     initTheme();
-    initFilters();
+    applyFilters();
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        activeFilter = btn.dataset.filter;
+        filterButtons.forEach((b) => b.classList.toggle("is-active", b === btn));
+        applyFilters();
+      });
+    });
+
+    searchInput.addEventListener("input", applyFilters);
+
+    resetFiltersBtn.addEventListener("click", () => {
+      activeFilter = "all";
+      searchInput.value = "";
+      filterButtons.forEach((b) => b.classList.toggle("is-active", b.dataset.filter === "all"));
+      applyFilters();
+    });
+
+    sectionsStack.addEventListener("click", (e) => {
+      const btn = e.target.closest(".preview-btn");
+      if (!btn) return;
+      openPreview({
+        url: btn.dataset.previewUrl,
+        title: btn.dataset.previewTitle,
+        path: btn.dataset.previewPath,
+        mobile: btn.dataset.previewMobile === "true",
+      });
+    });
+
+    vpButtons.forEach((btn) => {
+      btn.addEventListener("click", () => setViewportMode(btn.dataset.vp));
+    });
+
+    document.querySelectorAll("[data-close-modal]").forEach((el) => {
+      el.addEventListener("click", closePreview);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !previewModal.hidden) {
+        closePreview();
+        return;
+      }
+      if (event.altKey && event.key.toLowerCase() === "t") {
+        event.preventDefault();
+        themeToggleBtn.click();
+        return;
+      }
+      if (event.key === "/" && document.activeElement !== searchInput && previewModal.hidden) {
+        event.preventDefault();
+        searchInput.focus();
+      }
+    });
   });
 })();
