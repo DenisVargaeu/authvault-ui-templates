@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Pricing Layout 02" />
+  <title>AuthVault — Pricing 02 (Horizontal Stacked Tiers)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="page-shell bg-dots" style="max-width:860px;"><header class="topbar"><div class="breadcrumb"><a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span><span>AuthVault</span></a><span>/</span><span class="current">Pricing 02</span></div><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></header><main style="display:flex;flex-direction:column;gap:20px;"><section class="hero hero--left"><span class="eyebrow">Horizontal Tiers</span><h1 class="title">Simple plans, zero surprises.</h1><div class="billing-toggle"><button type="button" class="bill-btn is-active" data-billing="monthly">Monthly</button><button type="button" class="bill-btn" data-billing="yearly">Yearly (-20%)</button></div></section><section class="plans-stack">
+          <article class="plan-card plan-card--row"><div><h2>Personal</h2><p class="subtitle">Up to 1,000 active users &middot; All templates</p></div><div class="plan-price"><strong data-monthly="$0" data-yearly="$0">$0</strong><span>/ mo</span></div><a href="../../login/1/" class="btn-outline">Get Started</a></article>
+          <article class="plan-card plan-card--row plan-card--featured"><div><h2>Workspace <span class="badge">Popular</span></h2><p class="subtitle">Up to 25,000 active users &middot; Custom domains &amp; audit logs</p></div><div class="plan-price"><strong data-monthly="$19" data-yearly="$15">$19</strong><span>/ mo</span></div><a href="../../onboarding/1/" class="btn-primary">Start Trial</a></article>
+          <article class="plan-card plan-card--row"><div><h2>Enterprise</h2><p class="subtitle">Unlimited users &middot; SAML SSO &amp; dedicated SLA</p></div><div class="plan-price"><strong data-monthly="$79" data-yearly="$64">$79</strong><span>/ mo</span></div><a href="../../settings/1/" class="btn-outline">Configure</a></article>
+        </section></main><footer class="footer">&copy; 2026 DenisVargaeu &middot; v1.0.0</footer></div>
+  <script src="script.js"></script>
+</body>
+</html>

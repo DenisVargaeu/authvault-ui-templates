@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Dashboard Layout 04" />
+  <title>AuthVault — Dashboard 04 (Kanban Status Board)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="centered-shell"><header style="display:flex;justify-content:space-between;align-items:center;"><a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span><span>AuthVault</span><span class="badge">Kanban 04</span></a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></header><div class="page-head">
+      <div><h1 class="page-title">Workspace Overview</h1><p class="page-sub">Dashboard Layout 04 &mdash; Kanban Status Board</p></div>
+      <button type="button" id="new-session-btn" class="btn-primary"><i class="fa-solid fa-plus"></i><span>Simulate Event</span></button>
+    </div><section class="kpi-grid">
+  <article class="kpi-card"><span class="kpi-label">Active Sessions</span><strong class="kpi-value" id="metric-sessions">128</strong><span class="kpi-delta">+12% this week</span></article>
+  <article class="kpi-card"><span class="kpi-label">Success Rate</span><strong class="kpi-value">99.4%</strong><span class="kpi-delta">Last 30 days</span></article>
+  <article class="kpi-card"><span class="kpi-label">Avg. Verification</span><strong class="kpi-value">142 ms</strong><span class="kpi-delta">Client-side check</span></article>
+  <article class="kpi-card"><span class="kpi-label">Members</span><strong class="kpi-value">14</strong><span class="kpi-delta">3 admins, 11 editors</span></article>
+</section><section class="kanban-grid">
+          <div class="kanban-col"><div class="kanban-col__head"><span>Active Sessions</span><span>2</span></div>
+            <div class="kanban-item"><strong>alex@authvault.dev</strong><span>Bratislava, SK &middot; Email &amp; Password</span></div>
+            <div class="kanban-item"><strong>nina@authvault.dev</strong><span>Vienna, AT &middot; Passkey</span></div>
+          </div>
+          <div class="kanban-col"><div class="kanban-col__head"><span>Pending Review</span><span>1</span></div>
+            <div class="kanban-item"><strong>tomas@authvault.dev</strong><span>Prague, CZ &middot; Password Reset</span></div>
+          </div>
+          <div class="kanban-col"><div class="kanban-col__head"><span>Verified Today</span><span>2</span></div>
+            <div class="kanban-item"><strong>lara@authvault.dev</strong><span>Berlin, DE &middot; Google OAuth</span></div>
+            <div class="kanban-item"><strong>marek@authvault.dev</strong><span>Kosice, SK &middot; Email &amp; Password</span></div>
+          </div>
+        </section><footer class="footer">&copy; 2026 DenisVargaeu &middot; v1.0.0</footer></div>
+  <script src="script.js"></script>
+</body>
+</html>
