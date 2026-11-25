@@ -1,117 +1,342 @@
+<div align="center">
+
 # authvault-ui-templates
 
-An organized collection of **48 flat, Notion-inspired UI templates** (**6 categories &times; 8 distinct layouts each**) built with pure **HTML5, CSS3, and Vanilla JavaScript** — zero frameworks, warm espresso & paper color palettes, zero emojis, shared Dark/Light theme persistence (`Alt + T`), and simulated client-side interactions.
+**48 flat, Notion-inspired UI templates across 6 categories — built with pure HTML5, CSS3, and Vanilla JavaScript.**
 
-> **Demo Notice:** All forms and actions are simulated client-side only. No real passwords or credentials are collected, transmitted, or stored.
+[![Templates](https://img.shields.io/badge/Templates-48-a67b5b?style=flat-square&labelColor=1a1613)](#template-galleries)
+[![Categories](https://img.shields.io/badge/Categories-6_×_8-a67b5b?style=flat-square&labelColor=1a1613)](#category-overview)
+[![Stack](https://img.shields.io/badge/Stack-HTML5_%7C_CSS3_%7C_Vanilla_JS-a67b5b?style=flat-square&labelColor=1a1613)](#quick-start)
+[![Themes](https://img.shields.io/badge/Themes-Espresso_Dark_%26_Warm_Paper-a67b5b?style=flat-square&labelColor=1a1613)](#design-system)
+[![Version](https://img.shields.io/badge/Version-v1.0.0-a67b5b?style=flat-square&labelColor=1a1613)](#project-structure)
+
+[Directory Hub](#directory-hub) &middot; [Category Overview](#category-overview) &middot; [Template Galleries](#template-galleries) &middot; [Design System](#design-system) &middot; [Quick Start](#quick-start) &middot; [Customization](#customization)
+
+<br />
+
+<img src="./screenshots/hub.png" alt="authvault-ui-templates Directory Hub" width="100%" />
+
+</div>
 
 ---
 
-## Directory Hub (`/`)
-Interactive template hub organizing all 48 pages with instant category filters (`All`, `Login`, `Dashboard`, `Settings`, `Onboarding`, `Pricing`, `Errors`) and shared Dark/Light theme switching.
+> [!NOTE]
+> **Simulated Demo Only:** All authentication flows, settings forms, onboarding steps, and dashboard telemetry are simulated strictly on the client side. No real passwords or credentials are ever collected, transmitted, or stored.
 
-![Directory Hub](./screenshots/hub.png)
+## Why authvault-ui-templates?
+
+Most UI kits drown you in build pipelines, heavy frameworks, neon gradients, and cluttered glassmorphism. **authvault-ui-templates** takes the opposite approach:
+
+- **Zero frameworks & zero build step** — pure semantic HTML5, modern CSS3 custom properties, and modular Vanilla JavaScript.
+- **Calm, flat Notion aesthetic** — restrained warm espresso & paper palettes, `1px` hairline borders, crisp `Inter` typography, and zero emojis.
+- **48 standalone templates** — 6 core product page categories, each engineered in **8 genuinely distinct architectural layouts** (sidebar shells, 50/50 splits, centered documents, kanban boards, comparison matrices, command modals, and full-height drawers).
+- **Shared theme persistence** — toggle between **Espresso Dark** and **Warm Paper Light** anywhere using the UI switch or `Alt + T`; your preference persists seamlessly across all 48 pages via `localStorage`.
 
 ---
 
-## 1. Login & Authentication (`/login/1` – `/login/8`)
+## Directory Hub
 
-![Login Preview](./screenshots/layout-1.png)
+Open the root [index.html](./index.html) to browse all 48 templates from a single interactive gallery with real rendered thumbnails and instant category filtering (`All`, `Login`, `Dashboard`, `Settings`, `Onboarding`, `Pricing`, `Errors`).
 
-| # | Layout | Path | Screenshot |
+---
+
+## Category Overview
+
+| Category | Layouts | Folder | Key Interactive Features | Jump |
+|---|---|---|---|---|
+| **Login & Authentication** | `8` | `/login/1` – `/login/8` | Login/Register tabs, live email & password validation, 4-level strength meter, Forgot Password flow, demo autofill, toast notifications | [View Gallery](#1-login--authentication) |
+| **Workspace Dashboards** | `8` | `/dashboard/1` – `/dashboard/8` | KPI telemetry cards, searchable & filterable access log, simulated live event generator, Kanban status board, security checklist | [View Gallery](#2-workspace-dashboards) |
+| **Account & Settings** | `8` | `/settings/1` – `/settings/8` | Profile, Security, and Notifications sections, custom flat toggle switches, simulated save feedback | [View Gallery](#3-account--workspace-settings) |
+| **Onboarding Wizards** | `8` | `/onboarding/1` – `/onboarding/8` | 3-step interactive setup stepper, team size selector, live-updating workspace preview, launch summary | [View Gallery](#4-onboarding-wizards) |
+| **Plans & Pricing** | `8` | `/pricing/1` – `/pricing/8` | Monthly / Yearly (`-20%`) billing switcher, 3-tier grids, horizontal rows, feature comparison matrix, summary drawer | [View Gallery](#5-plans--pricing) |
+| **Errors & System Status** | `8` | `/errors/1` – `/errors/8` | `404`, `403`, `500` with service health checklist, and `503` Maintenance Mode with quick recovery navigation | [View Gallery](#6-errors--system-status) |
+
+---
+
+## Template Galleries
+
+Every layout below was rendered at `1440×900` in headless Firefox. Expand any section to inspect all 8 screenshots side-by-side.
+
+### 1. Login & Authentication
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/layout-1.png" alt="Login 01 — Right Editorial Split" />
+      <br /><strong>01 &mdash; Right Editorial Split</strong> (<code>/login/1/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/layout-3.png" alt="Login 03 — Full-Height 50/50 Split" />
+      <br /><strong>03 &mdash; Full-Height 50/50 Split</strong> (<code>/login/3/</code>)
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/layout-5.png" alt="Login 05 — Notion Sidebar App Shell" />
+      <br /><strong>05 &mdash; Notion Sidebar App Shell</strong> (<code>/login/5/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/layout-8.png" alt="Login 08 — 65/35 Editorial + Drawer" />
+      <br /><strong>08 &mdash; 65/35 Editorial + Drawer</strong> (<code>/login/8/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 4 Login layouts (02, 04, 06, 07)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/layout-2.png" alt="Login 02" /><br /><strong>02 &mdash; Centered Minimal Document</strong> (<code>/login/2/</code>)</td>
+    <td width="50%"><img src="./screenshots/layout-4.png" alt="Login 04" /><br /><strong>04 &mdash; Left Card + Workspace Board</strong> (<code>/login/4/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/layout-6.png" alt="Login 06" /><br /><strong>06 &mdash; Framed Editorial Window</strong> (<code>/login/6/</code>)</td>
+    <td width="50%"><img src="./screenshots/layout-7.png" alt="Login 07" /><br /><strong>07 &mdash; Command Modal</strong> (<code>/login/7/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+### 2. Workspace Dashboards
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/dashboard-1.png" alt="Dashboard 01 — Sidebar Overview" />
+      <br /><strong>01 &mdash; Sidebar Overview</strong> (<code>/dashboard/1/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/dashboard-4.png" alt="Dashboard 04 — Kanban Status Board" />
+      <br /><strong>04 &mdash; Kanban Status Board</strong> (<code>/dashboard/4/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 6 Dashboard layouts (02, 03, 05, 06, 07, 08)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/dashboard-2.png" alt="Dashboard 02" /><br /><strong>02 &mdash; Top-Nav Centered</strong> (<code>/dashboard/2/</code>)</td>
+    <td width="50%"><img src="./screenshots/dashboard-3.png" alt="Dashboard 03" /><br /><strong>03 &mdash; Right Sidebar Rail</strong> (<code>/dashboard/3/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/dashboard-5.png" alt="Dashboard 05" /><br /><strong>05 &mdash; KPI Rail + Activity Stream</strong> (<code>/dashboard/5/</code>)</td>
+    <td width="50%"><img src="./screenshots/dashboard-6.png" alt="Dashboard 06" /><br /><strong>06 &mdash; Framed Workspace Window</strong> (<code>/dashboard/6/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/dashboard-7.png" alt="Dashboard 07" /><br /><strong>07 &mdash; Command Search Dashboard</strong> (<code>/dashboard/7/</code>)</td>
+    <td width="50%"><img src="./screenshots/dashboard-8.png" alt="Dashboard 08" /><br /><strong>08 &mdash; 65/35 Executive + Drawer</strong> (<code>/dashboard/8/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+### 3. Account & Workspace Settings
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/settings-1.png" alt="Settings 01 — Left Nav Rail + Card" />
+      <br /><strong>01 &mdash; Left Nav Rail + Card</strong> (<code>/settings/1/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/settings-3.png" alt="Settings 03 — 50/50 Split Settings" />
+      <br /><strong>03 &mdash; 50/50 Split Settings</strong> (<code>/settings/3/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 6 Settings layouts (02, 04, 05, 06, 07, 08)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/settings-2.png" alt="Settings 02" /><br /><strong>02 &mdash; Top Underline Tabs</strong> (<code>/settings/2/</code>)</td>
+    <td width="50%"><img src="./screenshots/settings-4.png" alt="Settings 04" /><br /><strong>04 &mdash; Right Nav Rail</strong> (<code>/settings/4/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/settings-5.png" alt="Settings 05" /><br /><strong>05 &mdash; Sidebar App Shell</strong> (<code>/settings/5/</code>)</td>
+    <td width="50%"><img src="./screenshots/settings-6.png" alt="Settings 06" /><br /><strong>06 &mdash; Framed Window</strong> (<code>/settings/6/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/settings-7.png" alt="Settings 07" /><br /><strong>07 &mdash; Command Modal</strong> (<code>/settings/7/</code>)</td>
+    <td width="50%"><img src="./screenshots/settings-8.png" alt="Settings 08" /><br /><strong>08 &mdash; Stacked Property Cards</strong> (<code>/settings/8/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+### 4. Onboarding Wizards
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/onboarding-1.png" alt="Onboarding 01 — Centered Stepper Card" />
+      <br /><strong>01 &mdash; Centered Stepper Card</strong> (<code>/onboarding/1/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/onboarding-4.png" alt="Onboarding 04 — Left Wizard + Live Preview" />
+      <br /><strong>04 &mdash; Left Wizard + Live Preview</strong> (<code>/onboarding/4/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 6 Onboarding layouts (02, 03, 05, 06, 07, 08)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/onboarding-2.png" alt="Onboarding 02" /><br /><strong>02 &mdash; Right Editorial Split</strong> (<code>/onboarding/2/</code>)</td>
+    <td width="50%"><img src="./screenshots/onboarding-3.png" alt="Onboarding 03" /><br /><strong>03 &mdash; 50/50 Vertical Stepper</strong> (<code>/onboarding/3/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/onboarding-5.png" alt="Onboarding 05" /><br /><strong>05 &mdash; Sidebar App Shell</strong> (<code>/onboarding/5/</code>)</td>
+    <td width="50%"><img src="./screenshots/onboarding-6.png" alt="Onboarding 06" /><br /><strong>06 &mdash; Framed Setup Window</strong> (<code>/onboarding/6/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/onboarding-7.png" alt="Onboarding 07" /><br /><strong>07 &mdash; Spotlight Command Setup</strong> (<code>/onboarding/7/</code>)</td>
+    <td width="50%"><img src="./screenshots/onboarding-8.png" alt="Onboarding 08" /><br /><strong>08 &mdash; 65/35 Quote + Drawer</strong> (<code>/onboarding/8/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+### 5. Plans & Pricing
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/pricing-1.png" alt="Pricing 01 — 3-Column Classic Grid" />
+      <br /><strong>01 &mdash; 3-Column Classic Grid</strong> (<code>/pricing/1/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/pricing-4.png" alt="Pricing 04 — Comparison Matrix Table" />
+      <br /><strong>04 &mdash; Comparison Matrix Table</strong> (<code>/pricing/4/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 6 Pricing layouts (02, 03, 05, 06, 07, 08)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/pricing-2.png" alt="Pricing 02" /><br /><strong>02 &mdash; Horizontal Stacked Tiers</strong> (<code>/pricing/2/</code>)</td>
+    <td width="50%"><img src="./screenshots/pricing-3.png" alt="Pricing 03" /><br /><strong>03 &mdash; 50/50 Split Pricing</strong> (<code>/pricing/3/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/pricing-5.png" alt="Pricing 05" /><br /><strong>05 &mdash; Sidebar Shell Pricing</strong> (<code>/pricing/5/</code>)</td>
+    <td width="50%"><img src="./screenshots/pricing-6.png" alt="Pricing 06" /><br /><strong>06 &mdash; Framed Pricing Window</strong> (<code>/pricing/6/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/pricing-7.png" alt="Pricing 07" /><br /><strong>07 &mdash; Two-Tier Focus</strong> (<code>/pricing/7/</code>)</td>
+    <td width="50%"><img src="./screenshots/pricing-8.png" alt="Pricing 08" /><br /><strong>08 &mdash; 65/35 + Summary Drawer</strong> (<code>/pricing/8/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+### 6. Errors & System Status
+
+<table>
+  <tr>
+    <td width="50%">
+      <img src="./screenshots/errors-2.png" alt="Error 02 — Right Editorial 404" />
+      <br /><strong>02 &mdash; Right Editorial 404</strong> (<code>/errors/2/</code>)
+    </td>
+    <td width="50%">
+      <img src="./screenshots/errors-4.png" alt="Error 04 — 500 + Status Checklist" />
+      <br /><strong>04 &mdash; 500 + Status Checklist</strong> (<code>/errors/4/</code>)
+    </td>
+  </tr>
+</table>
+
+<details>
+<summary><strong>Show remaining 6 Error &amp; Status layouts (01, 03, 05, 06, 07, 08)</strong></summary>
+<br />
+<table>
+  <tr>
+    <td width="50%"><img src="./screenshots/errors-1.png" alt="Error 01" /><br /><strong>01 &mdash; Minimal Centered 404</strong> (<code>/errors/1/</code>)</td>
+    <td width="50%"><img src="./screenshots/errors-3.png" alt="Error 03" /><br /><strong>03 &mdash; 50/50 Split 403 Forbidden</strong> (<code>/errors/3/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/errors-5.png" alt="Error 05" /><br /><strong>05 &mdash; Sidebar Shell 404</strong> (<code>/errors/5/</code>)</td>
+    <td width="50%"><img src="./screenshots/errors-6.png" alt="Error 06" /><br /><strong>06 &mdash; Framed Diagnostic Window</strong> (<code>/errors/6/</code>)</td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="./screenshots/errors-7.png" alt="Error 07" /><br /><strong>07 &mdash; Spotlight Quick-Recovery</strong> (<code>/errors/7/</code>)</td>
+    <td width="50%"><img src="./screenshots/errors-8.png" alt="Error 08" /><br /><strong>08 &mdash; 65/35 Maintenance Mode (503)</strong> (<code>/errors/8/</code>)</td>
+  </tr>
+</table>
+</details>
+
+---
+
+## Design System
+
+Every template shares a unified set of CSS custom properties for instant visual consistency:
+
+| Token | Espresso Dark (`data-theme="dark"`) | Warm Paper Light (`data-theme="light"`) | Role |
 |---|---|---|---|
-| 01 | Right Editorial Split | `/login/1/` | [layout-1.png](./screenshots/layout-1.png) |
-| 02 | Centered Minimal Document | `/login/2/` | [layout-2.png](./screenshots/layout-2.png) |
-| 03 | Full-Height 50/50 Split | `/login/3/` | [layout-3.png](./screenshots/layout-3.png) |
-| 04 | Left Card + Workspace Board | `/login/4/` | [layout-4.png](./screenshots/layout-4.png) |
-| 05 | Notion Sidebar App Shell | `/login/5/` | [layout-5.png](./screenshots/layout-5.png) |
-| 06 | Framed Editorial Window | `/login/6/` | [layout-6.png](./screenshots/layout-6.png) |
-| 07 | Command Modal | `/login/7/` | [layout-7.png](./screenshots/layout-7.png) |
-| 08 | 65/35 Editorial + Drawer | `/login/8/` | [layout-8.png](./screenshots/layout-8.png) |
+| `--bg-page` | `#120F0D` | `#F6F3EF` | Page canvas |
+| `--bg-card` | `#1A1613` | `#FFFFFF` | Primary cards & panels |
+| `--bg-sidebar` | `#161210` | `#F2EDE7` | Sidebars & header strips |
+| `--accent` | `#A67B5B` | `#6F4E37` | Primary buttons & active indicators |
+| `--accent-text` | `#C9A68A` | `#6F4E37` | Links, eyebrows & accents |
+| `--text-primary` | `#F2ECE6` | `#241C17` | Primary ink |
+| `--text-secondary` | `#A89C91` | `#64574E` | Subtitles & body copy |
+
+### Keyboard Shortcuts & Ergonomics
+
+| Shortcut | Action |
+|---|---|
+| `Alt + T` | Toggle between **Espresso Dark** and **Warm Paper Light** (persisted via `localStorage`) |
+| `Tab` / `Shift + Tab` | Full keyboard focus traversal with accessible `:focus-visible` rings |
+| `ArrowLeft` / `ArrowRight` | Switch between `Sign In` and `Register` tabs on login layouts |
 
 ---
 
-## 2. Workspace Dashboards (`/dashboard/1` – `/dashboard/8`)
+## Quick Start
 
-![Dashboard Preview](./screenshots/dashboard-1.png)
+No `npm install`, no bundler, no build step required.
 
-| # | Layout | Path | Screenshot |
-|---|---|---|---|
-| 01 | Sidebar Overview | `/dashboard/1/` | [dashboard-1.png](./screenshots/dashboard-1.png) |
-| 02 | Top-Nav Centered | `/dashboard/2/` | [dashboard-2.png](./screenshots/dashboard-2.png) |
-| 03 | Right Sidebar Rail | `/dashboard/3/` | [dashboard-3.png](./screenshots/dashboard-3.png) |
-| 04 | Kanban Status Board | `/dashboard/4/` | [dashboard-4.png](./screenshots/dashboard-4.png) |
-| 05 | KPI Rail + Activity Stream | `/dashboard/5/` | [dashboard-5.png](./screenshots/dashboard-5.png) |
-| 06 | Framed Workspace Window | `/dashboard/6/` | [dashboard-6.png](./screenshots/dashboard-6.png) |
-| 07 | Command Search Dashboard | `/dashboard/7/` | [dashboard-7.png](./screenshots/dashboard-7.png) |
-| 08 | 65/35 Executive + Drawer | `/dashboard/8/` | [dashboard-8.png](./screenshots/dashboard-8.png) |
+### Option 1 — Python Built-in Server
+```bash
+git clone https://github.com/Denisvargaeu/authvault-ui-templates.git
+cd authvault-ui-templates
+python3 -m http.server 8000
+```
+Open `http://localhost:8000/` to browse the interactive Directory Hub.
 
----
+### Option 2 — Node.js (`npx serve`)
+```bash
+npx serve .
+```
 
-## 3. Account & Workspace Settings (`/settings/1` – `/settings/8`)
-
-![Settings Preview](./screenshots/settings-1.png)
-
-| # | Layout | Path | Screenshot |
-|---|---|---|---|
-| 01 | Left Nav Rail + Card | `/settings/1/` | [settings-1.png](./screenshots/settings-1.png) |
-| 02 | Top Underline Tabs | `/settings/2/` | [settings-2.png](./screenshots/settings-2.png) |
-| 03 | 50/50 Split Settings | `/settings/3/` | [settings-3.png](./screenshots/settings-3.png) |
-| 04 | Right Nav Rail | `/settings/4/` | [settings-4.png](./screenshots/settings-4.png) |
-| 05 | Sidebar App Shell | `/settings/5/` | [settings-5.png](./screenshots/settings-5.png) |
-| 06 | Framed Window | `/settings/6/` | [settings-6.png](./screenshots/settings-6.png) |
-| 07 | Command Modal | `/settings/7/` | [settings-7.png](./screenshots/settings-7.png) |
-| 08 | Stacked Property Cards | `/settings/8/` | [settings-8.png](./screenshots/settings-8.png) |
+### Option 3 — Direct File Access
+Open any `index.html` directly in your browser (e.g., `login/1/index.html` or `dashboard/4/index.html`).
 
 ---
 
-## 4. Onboarding Wizards (`/onboarding/1` – `/onboarding/8`)
+## Customization
 
-![Onboarding Preview](./screenshots/onboarding-1.png)
+Because every template is completely self-contained (`index.html`, `style.css`, `script.js`), you can copy any single folder (for example `login/3/` or `pricing/4/`) straight into your project and re-brand it in seconds by editing `:root` in `style.css`:
 
-| # | Layout | Path | Screenshot |
-|---|---|---|---|
-| 01 | Centered Stepper Card | `/onboarding/1/` | [onboarding-1.png](./screenshots/onboarding-1.png) |
-| 02 | Right Editorial Split | `/onboarding/2/` | [onboarding-2.png](./screenshots/onboarding-2.png) |
-| 03 | 50/50 Vertical Stepper | `/onboarding/3/` | [onboarding-3.png](./screenshots/onboarding-3.png) |
-| 04 | Left Wizard + Live Preview | `/onboarding/4/` | [onboarding-4.png](./screenshots/onboarding-4.png) |
-| 05 | Sidebar App Shell | `/onboarding/5/` | [onboarding-5.png](./screenshots/onboarding-5.png) |
-| 06 | Framed Setup Window | `/onboarding/6/` | [onboarding-6.png](./screenshots/onboarding-6.png) |
-| 07 | Spotlight Command Setup | `/onboarding/7/` | [onboarding-7.png](./screenshots/onboarding-7.png) |
-| 08 | 65/35 Quote + Drawer | `/onboarding/8/` | [onboarding-8.png](./screenshots/onboarding-8.png) |
-
----
-
-## 5. Plans & Pricing (`/pricing/1` – `/pricing/8`)
-
-![Pricing Preview](./screenshots/pricing-1.png)
-
-| # | Layout | Path | Screenshot |
-|---|---|---|---|
-| 01 | 3-Column Classic Grid | `/pricing/1/` | [pricing-1.png](./screenshots/pricing-1.png) |
-| 02 | Horizontal Stacked Tiers | `/pricing/2/` | [pricing-2.png](./screenshots/pricing-2.png) |
-| 03 | 50/50 Split Pricing | `/pricing/3/` | [pricing-3.png](./screenshots/pricing-3.png) |
-| 04 | Comparison Matrix Table | `/pricing/4/` | [pricing-4.png](./screenshots/pricing-4.png) |
-| 05 | Sidebar Shell Pricing | `/pricing/5/` | [pricing-5.png](./screenshots/pricing-5.png) |
-| 06 | Framed Pricing Window | `/pricing/6/` | [pricing-6.png](./screenshots/pricing-6.png) |
-| 07 | Two-Tier Focus | `/pricing/7/` | [pricing-7.png](./screenshots/pricing-7.png) |
-| 08 | 65/35 + Summary Drawer | `/pricing/8/` | [pricing-8.png](./screenshots/pricing-8.png) |
-
----
-
-## 6. Errors & System Status (`/errors/1` – `/errors/8`)
-
-![Errors Preview](./screenshots/errors-1.png)
-
-| # | Layout | Path | Screenshot |
-|---|---|---|---|
-| 01 | Minimal Centered 404 | `/errors/1/` | [errors-1.png](./screenshots/errors-1.png) |
-| 02 | Right Editorial 404 | `/errors/2/` | [errors-2.png](./screenshots/errors-2.png) |
-| 03 | 50/50 Split 403 Forbidden | `/errors/3/` | [errors-3.png](./screenshots/errors-3.png) |
-| 04 | 500 + Status Checklist | `/errors/4/` | [errors-4.png](./screenshots/errors-4.png) |
-| 05 | Sidebar Shell 404 | `/errors/5/` | [errors-5.png](./screenshots/errors-5.png) |
-| 06 | Framed Diagnostic Window | `/errors/6/` | [errors-6.png](./screenshots/errors-6.png) |
-| 07 | Spotlight Quick-Recovery | `/errors/7/` | [errors-7.png](./screenshots/errors-7.png) |
-| 08 | 65/35 Maintenance Mode (503) | `/errors/8/` | [errors-8.png](./screenshots/errors-8.png) |
+```css
+:root {
+  --accent: #a67b5b;       /* Primary brand color */
+  --accent-hover: #b88c6c; /* Hover state */
+  --bg-page: #120f0d;      /* Canvas background */
+  --bg-card: #1a1613;      /* Elevated card surface */
+}
+```
 
 ---
 
@@ -119,9 +344,9 @@ Interactive template hub organizing all 48 pages with instant category filters (
 
 ```text
 authvault-ui-templates/
-├── index.html              # Organized UI Template Directory Hub (48 templates)
-├── style.css
-├── script.js
+├── index.html              # Interactive Directory Hub (48 templates)
+├── style.css               # Hub styles
+├── script.js               # Hub catalog renderer, filters & theme sync
 ├── login/1..8/             # 8 Authentication & Login layouts
 ├── dashboard/1..8/         # 8 Workspace Dashboard layouts
 ├── settings/1..8/          # 8 Account & Workspace Settings layouts
@@ -132,14 +357,10 @@ authvault-ui-templates/
 └── README.md
 ```
 
-## Quick Start
-
-```bash
-python3 -m http.server 8000
-```
-
-Open `http://localhost:8000/` to browse all 48 templates from the directory hub.
-
 ---
 
-`v1.0.0` &bull; &copy; 2026 DenisVargaeu
+<div align="center">
+
+`v1.0.0` &middot; Built with pure HTML5, CSS3 &amp; Vanilla JavaScript &middot; &copy; 2026 DenisVargaeu
+
+</div>
