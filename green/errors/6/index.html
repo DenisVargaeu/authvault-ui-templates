@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Error Layout 06" />
+  <title>AuthVault — Error 06 (Framed Diagnostic Window)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="center bg-dots" style="min-height:100vh;padding:24px;"><div style="width:100%;max-width:560px;background:var(--bg-card);border:1px solid var(--border-medium);border-radius:var(--radius-xl);overflow:hidden;"><header class="topbar" style="padding:10px 16px;background:var(--bg-sidebar);border-bottom:1px solid var(--border-subtle);"><span class="brand-link"><i class="fa-solid fa-terminal" style="color:var(--accent-text);"></i><span>authvault://error/404</span></span><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></header><div style="padding:28px;"><section class="err-inner"><span class="err-code">ERROR 404</span><h1>Route not resolved.</h1><p>Diagnostic trace: GET /unknown-route returned status 404.</p><div class="actions"><a href="../../" class="btn-primary"><i class="fa-solid fa-arrow-left"></i><span>Template Hub</span></a><a href="../../dashboard/1/" class="btn-outline">Dashboard</a><a href="../../login/1/" class="btn-outline">Sign In</a></div></section></div></div></div>
+  <script src="script.js"></script>
+</body>
+</html>

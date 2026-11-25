@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Settings Layout 08" />
+  <title>AuthVault — Settings 08 (Stacked Property Cards)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="page-shell" style="max-width:740px;"><header class="topbar"><div class="breadcrumb"><a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span><span>AuthVault</span></a><span>/</span><span class="current">Settings 08</span></div><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></header><main style="display:flex;flex-direction:column;gap:16px;"><div class="settings-card"><div class="settings-panel" id="sec-profile">
+  <div class="panel-header"><h1>Profile Settings</h1><p>Manage your simulated AuthVault workspace identity.</p></div>
+  <form id="profile-form" class="settings-form">
+    <div class="form-grid">
+      <div class="field"><label for="s-name">Full Name</label><input id="s-name" type="text" value="Alex Mercer" /></div>
+      <div class="field"><label for="s-role">Role</label><input id="s-role" type="text" value="Workspace Admin" /></div>
+    </div>
+    <div class="field"><label for="s-email">Email Address</label><input id="s-email" type="email" value="demo@authvault.dev" /></div>
+    <div class="field"><label for="s-bio">Bio</label><textarea id="s-bio" rows="2">Flat warm-brown Notion interface enthusiast.</textarea></div>
+    <div style="display:flex;justify-content:flex-end;"><button type="submit" class="btn-primary">Save Changes</button></div>
+  </form>
+</div>
+<div class="settings-panel" id="sec-security">
+  <div class="panel-header"><h1>Security Preferences</h1><p>Configure simulated session protection.</p></div>
+  <div class="toggle-row"><div><strong>Two-Factor Auth</strong><p>Require verification code on new devices.</p></div><input type="checkbox" class="switch" checked /></div>
+  <div class="toggle-row"><div><strong>Login Alerts</strong><p>Notify on simulated sign-ins.</p></div><input type="checkbox" class="switch" checked /></div>
+</div>
+<div class="settings-panel" id="sec-notifications">
+  <div class="panel-header"><h1>Notifications</h1><p>Choose workspace email summaries.</p></div>
+  <div class="toggle-row"><div><strong>Weekly Digest</strong><p>Monday morning security overview.</p></div><input type="checkbox" class="switch" checked /></div>
+</div></div></main><footer class="footer">&copy; 2026 DenisVargaeu &middot; v1.0.0</footer></div>
+  <script src="script.js"></script>
+</body>
+</html>

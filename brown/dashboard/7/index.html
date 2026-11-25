@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Dashboard Layout 07" />
+  <title>AuthVault — Dashboard 07 (Command Search Dashboard)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="cmd-dash bg-lines">
+          <header style="display:flex;justify-content:space-between;align-items:center;"><a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-terminal"></i></span><span>authvault://dashboard</span><span class="badge">07</span></a><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></header>
+          <div class="cmd-search-bar"><i class="fa-solid fa-magnifying-glass" style="color:var(--accent-text);"></i><input type="search" id="session-search" placeholder="Search accounts, locations, or auth methods..." /><button type="button" id="new-session-btn" class="btn-primary" style="height:30px;font-size:0.74rem;">+ Event</button></div>
+          <section class="kpi-grid">
+  <article class="kpi-card"><span class="kpi-label">Active Sessions</span><strong class="kpi-value" id="metric-sessions">128</strong><span class="kpi-delta">+12% this week</span></article>
+  <article class="kpi-card"><span class="kpi-label">Success Rate</span><strong class="kpi-value">99.4%</strong><span class="kpi-delta">Last 30 days</span></article>
+  <article class="kpi-card"><span class="kpi-label">Avg. Verification</span><strong class="kpi-value">142 ms</strong><span class="kpi-delta">Client-side check</span></article>
+  <article class="kpi-card"><span class="kpi-label">Members</span><strong class="kpi-value">14</strong><span class="kpi-delta">3 admins, 11 editors</span></article>
+</section><div class="panel">
+  <div class="panel__head">
+    <h2 class="panel__title">Recent Access Log</h2>
+    <div class="pill-filters">
+      <button type="button" class="pill-btn is-active" data-status="all">All</button>
+      <button type="button" class="pill-btn" data-status="verified">Verified</button>
+      <button type="button" class="pill-btn" data-status="warning">Review</button>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Account</th><th>Method</th><th>Location</th><th>Status</th><th>Time</th></tr></thead>
+      <tbody id="access-tbody">
+        <tr data-status="verified"><td><strong>alex@authvault.dev</strong></td><td>Email &amp; Password</td><td>Bratislava, SK</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">2 min ago</td></tr>
+        <tr data-status="verified"><td><strong>nina@authvault.dev</strong></td><td>Passkey</td><td>Vienna, AT</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">18 min ago</td></tr>
+        <tr data-status="warning"><td><strong>tomas@authvault.dev</strong></td><td>Password Reset</td><td>Prague, CZ</td><td><span class="status-tag status-tag--warn">Review</span></td><td class="muted">1 hr ago</td></tr>
+        <tr data-status="verified"><td><strong>lara@authvault.dev</strong></td><td>Google OAuth</td><td>Berlin, DE</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">3 hrs ago</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+          <footer class="footer">&copy; 2026 DenisVargaeu &middot; v1.0.0</footer>
+        </div>
+  <script src="script.js"></script>
+</body>
+</html>

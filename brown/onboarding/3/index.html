@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Onboarding Layout 03" />
+  <title>AuthVault — Onboarding 03 (50/50 Vertical Stepper)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="split-full"><aside class="split-pane split-pane--left bg-dots"><a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span><span>AuthVault</span><span class="badge">03</span></a><div><span class="eyebrow">Step-by-step</span><h2 style="font-size:2rem;margin:8px 0;">Workspace Onboarding</h2><p style="color:var(--text-secondary);max-width:380px;">Complete three quick steps to preview your configured workspace.</p></div><span class="footer" style="text-align:left;">&copy; 2026 DenisVargaeu &middot; v1.0.0</span></aside><main class="split-pane"><div style="display:flex;justify-content:flex-end;"><button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button></div><section class="wizard-card" style="margin:auto;border:none;background:transparent;"><div class="stepper">
+  <div class="step-pill is-active" data-step-ind="1"><span>01</span> Workspace</div>
+  <div class="step-pill" data-step-ind="2"><span>02</span> Team</div>
+  <div class="step-pill" data-step-ind="3"><span>03</span> Launch</div>
+</div>
+<div class="wizard-step" data-step="1">
+  <h1>Name your workspace</h1>
+  <p class="step-desc">Give your team a clean home. You can rename it anytime.</p>
+  <div class="field"><label for="ws-name">Workspace Name</label><input type="text" id="ws-name" value="Studio Espresso" /></div>
+  <div class="field"><label for="ws-role">Primary Role</label><input type="text" id="ws-role" value="Product Designer" /></div>
+</div>
+<div class="wizard-step" data-step="2" hidden>
+  <h1>How big is your team?</h1>
+  <p class="step-desc">We tailor workspace defaults to your team size.</p>
+  <div class="choice-grid">
+    <button type="button" class="choice-card is-selected" data-choice="Solo (1)"><strong>Solo</strong><span>Just me</span></button>
+    <button type="button" class="choice-card" data-choice="Small (2-10)"><strong>Small Team</strong><span>2 - 10 people</span></button>
+    <button type="button" class="choice-card" data-choice="Growth (11-50)"><strong>Growth</strong><span>11 - 50 people</span></button>
+    <button type="button" class="choice-card" data-choice="Enterprise (50+)"><strong>Enterprise</strong><span>50+ people</span></button>
+  </div>
+</div>
+<div class="wizard-step" data-step="3" hidden>
+  <h1>Ready to launch</h1>
+  <p class="step-desc">Review your simulated workspace configuration.</p>
+  <div class="summary-box">
+    <div class="summary-row"><span>Workspace</span><strong data-bind="name">Studio Espresso</strong></div>
+    <div class="summary-row"><span>Role</span><strong data-bind="role">Product Designer</strong></div>
+    <div class="summary-row"><span>Team Size</span><strong data-bind="size">Solo (1)</strong></div>
+  </div>
+</div>
+<div class="wizard-actions">
+  <button type="button" id="prev-btn" class="btn-outline" disabled>Back</button>
+  <button type="button" id="next-btn" class="btn-primary"><span>Continue</span><i class="fa-solid fa-arrow-right"></i></button>
+</div></section><div></div></main></div>
+  <script src="script.js"></script>
+</body>
+</html>

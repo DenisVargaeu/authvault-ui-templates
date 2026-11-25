@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Dashboard Layout 01" />
+  <title>AuthVault — Dashboard 01 (Sidebar Overview)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="">
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="shell-sidebar"><aside class="sidebar">
+  <a href="../../" class="brand-link"><span class="brand-icon"><i class="fa-solid fa-shield-halved"></i></span><span>AuthVault</span></a>
+  <nav class="sidebar__nav">
+    <a href="./" class="nav-link is-active"><i class="fa-solid fa-table-columns"></i><span>Overview</span></a>
+    <a href="../../settings/1/" class="nav-link"><i class="fa-solid fa-sliders"></i><span>Settings</span></a>
+    <a href="../../onboarding/1/" class="nav-link"><i class="fa-solid fa-compass"></i><span>Onboarding</span></a>
+    <a href="../../pricing/1/" class="nav-link"><i class="fa-solid fa-layer-group"></i><span>Pricing</span></a>
+    <a href="../../login/1/" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i><span>Sign In</span></a>
+    <a href="../../" class="nav-link"><i class="fa-solid fa-border-all"></i><span>All Templates</span></a>
+  </nav>
+</aside><div class="main-col"><header class="topbar">
+      <div class="breadcrumb"><a href="../../">Directory</a><span>/</span><span class="current">Dashboard 01</span></div>
+      <div style="display:flex;gap:10px;align-items:center;">
+        <div class="search-box"><i class="fa-solid fa-magnifying-glass"></i><input type="search" id="session-search" placeholder="Filter log..." /></div>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Switch to light theme" aria-pressed="false">
+  <span class="theme-toggle__track" aria-hidden="true">
+    <i class="fa-solid fa-moon theme-toggle__icon"></i>
+    <i class="fa-solid fa-sun theme-toggle__icon"></i>
+    <span class="theme-toggle__thumb"></span>
+  </span>
+  <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+</button>
+      </div>
+    </header><main class="content"><div class="page-head">
+      <div><h1 class="page-title">Workspace Overview</h1><p class="page-sub">Dashboard Layout 01 &mdash; Sidebar Overview</p></div>
+      <button type="button" id="new-session-btn" class="btn-primary"><i class="fa-solid fa-plus"></i><span>Simulate Event</span></button>
+    </div><section class="kpi-grid">
+  <article class="kpi-card"><span class="kpi-label">Active Sessions</span><strong class="kpi-value" id="metric-sessions">128</strong><span class="kpi-delta">+12% this week</span></article>
+  <article class="kpi-card"><span class="kpi-label">Success Rate</span><strong class="kpi-value">99.4%</strong><span class="kpi-delta">Last 30 days</span></article>
+  <article class="kpi-card"><span class="kpi-label">Avg. Verification</span><strong class="kpi-value">142 ms</strong><span class="kpi-delta">Client-side check</span></article>
+  <article class="kpi-card"><span class="kpi-label">Members</span><strong class="kpi-value">14</strong><span class="kpi-delta">3 admins, 11 editors</span></article>
+</section><div class="split-2"><div class="panel">
+  <div class="panel__head">
+    <h2 class="panel__title">Recent Access Log</h2>
+    <div class="pill-filters">
+      <button type="button" class="pill-btn is-active" data-status="all">All</button>
+      <button type="button" class="pill-btn" data-status="verified">Verified</button>
+      <button type="button" class="pill-btn" data-status="warning">Review</button>
+    </div>
+  </div>
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>Account</th><th>Method</th><th>Location</th><th>Status</th><th>Time</th></tr></thead>
+      <tbody id="access-tbody">
+        <tr data-status="verified"><td><strong>alex@authvault.dev</strong></td><td>Email &amp; Password</td><td>Bratislava, SK</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">2 min ago</td></tr>
+        <tr data-status="verified"><td><strong>nina@authvault.dev</strong></td><td>Passkey</td><td>Vienna, AT</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">18 min ago</td></tr>
+        <tr data-status="warning"><td><strong>tomas@authvault.dev</strong></td><td>Password Reset</td><td>Prague, CZ</td><td><span class="status-tag status-tag--warn">Review</span></td><td class="muted">1 hr ago</td></tr>
+        <tr data-status="verified"><td><strong>lara@authvault.dev</strong></td><td>Google OAuth</td><td>Berlin, DE</td><td><span class="status-tag status-tag--ok">Verified</span></td><td class="muted">3 hrs ago</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div><aside class="panel">
+  <div class="panel__head"><h2 class="panel__title">Security Checklist</h2><span class="badge">3 / 4</span></div>
+  <ul class="checklist">
+    <li class="is-done"><i class="fa-solid fa-circle-check"></i><span>Strong password rules enabled</span></li>
+    <li class="is-done"><i class="fa-solid fa-circle-check"></i><span>Email format validation active</span></li>
+    <li class="is-done"><i class="fa-solid fa-circle-check"></i><span>Zero local password storage</span></li>
+    <li><i class="fa-regular fa-circle"></i><span>Connect production IdP</span></li>
+  </ul>
+</aside></div></main><footer class="footer">&copy; 2026 DenisVargaeu &middot; v1.0.0</footer></div></div>
+  <script src="script.js"></script>
+</body>
+</html>

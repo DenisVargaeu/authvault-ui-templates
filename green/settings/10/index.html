@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="AuthVault — Settings 10 (Mobile Tab-Bar Shell) — Mobile-First Flat Notion Template" />
+  <title>AuthVault — Settings 10 (Mobile Tab-Bar Shell)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="toast-container" class="toast-container" role="region" aria-label="Notifications" aria-live="polite"></div>
+  <div class="m-viewport">
+    <div class="m-app">
+      <header class="m-topbar">
+        <a href="../../" class="m-brand">
+          <span class="m-brand__icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+          <span>AuthVault</span>
+          <span class="m-badge">Mobile 10</span>
+        </a>
+        <button type="button" id="theme-toggle" class="m-icon-btn" aria-label="Toggle theme" aria-pressed="false">
+          <i class="fa-solid fa-moon" aria-hidden="true"></i>
+        </button>
+      </header>
+      <main class="m-body"><h1 class="m-title">Settings</h1><div class="m-list"><div class="m-list-item"><div><strong>Two-Factor Auth</strong><small>Secondary code check</small></div><input type="checkbox" class="m-switch" checked /></div><div class="m-list-item"><div><strong>Device Alerts</strong><small>Notify on new login</small></div><input type="checkbox" class="m-switch" checked /></div><div class="m-list-item"><div><strong>Weekly Digest</strong><small>Monday summary email</small></div><input type="checkbox" class="m-switch" /></div></div></main><nav class="m-tabbar" aria-label="Mobile navigation">
+  <a href="../../dashboard/10/" class="m-tab "><i class="fa-solid fa-table-columns"></i><span>Home</span></a>
+  <a href="../../settings/10/" class="m-tab is-active"><i class="fa-solid fa-sliders"></i><span>Settings</span></a>
+  <a href="../../pricing/10/" class="m-tab "><i class="fa-solid fa-layer-group"></i><span>Plans</span></a>
+  <a href="../../" class="m-tab "><i class="fa-solid fa-border-all"></i><span>Hub</span></a>
+</nav>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

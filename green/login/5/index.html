@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AuthVault Layout 5 — Notion Sidebar App Shell" />
+  <title>AuthVault — Layout 5 (Notion Sidebar Shell)</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div
+    id="toast-container"
+    class="toast-container"
+    role="region"
+    aria-label="Notifications"
+    aria-live="polite"
+    aria-atomic="false"
+  ></div>
+
+  <div class="app-shell">
+    <!-- Left Notion Navigation Sidebar -->
+    <aside class="sidebar" aria-label="Workspace navigation">
+      <div class="sidebar__brand">
+        <span class="brand-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+        <span class="brand-name">AuthVault</span>
+        <span class="badge">v1.0</span>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__label">Authentication</div>
+        <nav class="sidebar__nav">
+          <button type="button" class="nav-item" data-switch-view="login">
+            <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+            <span>Sign In</span>
+          </button>
+          <button type="button" class="nav-item" data-switch-view="register">
+            <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+            <span>Create Account</span>
+          </button>
+          <button type="button" class="nav-item" data-switch-view="forgot">
+            <i class="fa-solid fa-key" aria-hidden="true"></i>
+            <span>Reset Password</span>
+          </button>
+        </nav>
+      </div>
+
+      <div class="sidebar__section">
+        <div class="sidebar__label">Quick Tools</div>
+        <div class="sidebar__nav">
+          <button type="button" id="quick-fill-btn" class="nav-item">
+            <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+            <span>Fill Demo Data</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="sidebar__section sidebar__meta">
+        <div class="sidebar__label">Session</div>
+        <div class="meta-row">
+          <span>View</span>
+          <strong id="live-view-value">Sign In</strong>
+        </div>
+        <div class="meta-row">
+          <span>Status</span>
+          <strong id="live-status-pill">Idle</strong>
+        </div>
+        <div class="meta-row">
+          <span>Theme</span>
+          <strong id="live-theme-value">Espresso Dark</strong>
+        </div>
+      </div>
+
+      <div class="sidebar__footer">
+        <span>&copy; 2026 DenisVargaeu</span>
+      </div>
+    </aside>
+
+    <!-- Main Notion Document Canvas -->
+    <div class="main-canvas">
+      <header class="canvas-topbar">
+        <div class="breadcrumb">
+          <span>AuthVault</span>
+          <span class="sep">/</span>
+          <span>Layout 05</span>
+          <span class="sep">/</span>
+          <span class="current">Access</span>
+        </div>
+
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          aria-label="Switch to light theme"
+          aria-pressed="false"
+        >
+          <span class="theme-toggle__track" aria-hidden="true">
+            <i class="fa-solid fa-moon theme-toggle__icon"></i>
+            <i class="fa-solid fa-sun theme-toggle__icon"></i>
+            <span class="theme-toggle__thumb"></span>
+          </span>
+          <span class="theme-toggle__label" id="theme-toggle-label">Dark</span>
+        </button>
+      </header>
+
+      <main class="canvas-body">
+        <section class="auth-doc" aria-label="Authentication">
+          <div class="brand-copy">
+            <h1 id="brand-heading" class="brand-copy__title">Welcome back!</h1>
+            <p id="brand-subtitle" class="brand-copy__subtitle">
+              Sign in to continue to your account
+            </p>
+          </div>
+
+          <div id="auth-tabs" class="auth-tabs" role="tablist" aria-label="Authentication mode">
+            <div class="auth-tabs__indicator" id="tab-indicator" aria-hidden="true"></div>
+            <button type="button" id="tab-login" class="auth-tab is-active" role="tab" aria-selected="true" aria-controls="view-login" data-view="login">
+              <span>Sign In</span>
+            </button>
+            <button type="button" id="tab-register" class="auth-tab" role="tab" aria-selected="false" aria-controls="view-register" data-view="register">
+              <span>Register</span>
+            </button>
+          </div>
+
+          <div class="views-container">
+            <!-- LOGIN -->
+            <div id="view-login" class="auth-view is-active" role="tabpanel" aria-labelledby="tab-login">
+              <form id="login-form" class="auth-form" novalidate>
+                <div class="form-group">
+                  <label for="login-email" class="form-label">Email Address</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" id="login-email" name="email" class="form-input" placeholder="name@example.com" autocomplete="email" required aria-describedby="login-email-error" />
+                    <span class="input-status-icon" aria-hidden="true"></span>
+                  </div>
+                  <p id="login-email-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="login-password" class="form-label">Password</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="login-password" name="password" class="form-input" placeholder="Enter your password" autocomplete="current-password" required aria-describedby="login-password-error" />
+                    <button type="button" class="password-toggle" data-target="login-password" aria-label="Show password" aria-pressed="false">
+                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <p id="login-password-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-row">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="remember-me" class="checkbox-input" />
+                    <span class="checkbox-box" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                    <span class="checkbox-text">Remember me</span>
+                  </label>
+                  <button type="button" class="text-link" data-switch-view="forgot">Forgot password?</button>
+                </div>
+
+                <button type="submit" id="login-submit" class="btn btn--primary">
+                  <span class="btn__content">
+                    <span>Sign In</span>
+                    <i class="fa-solid fa-arrow-right btn__arrow" aria-hidden="true"></i>
+                  </span>
+                  <span class="btn__loader" aria-hidden="true">
+                    <span class="spinner"></span>
+                    <span>Signing in...</span>
+                  </span>
+                </button>
+
+                <div class="divider" role="separator"><span>or</span></div>
+
+                <button type="button" class="btn btn--google" data-demo-provider="Google">
+                  <i class="fa-brands fa-google google-fa-icon" aria-hidden="true"></i>
+                  <span>Continue with Google</span>
+                  <span class="btn__tag">Demo</span>
+                </button>
+
+                <p class="form-switch">
+                  Don't have an account?
+                  <button type="button" class="text-link text-link--strong" data-switch-view="register">Create account</button>
+                </p>
+              </form>
+            </div>
+
+            <!-- REGISTER -->
+            <div id="view-register" class="auth-view" role="tabpanel" aria-labelledby="tab-register" hidden>
+              <form id="register-form" class="auth-form auth-form--compact" novalidate>
+                <div class="form-group">
+                  <label for="register-name" class="form-label">Full Name</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-regular fa-user"></i></span>
+                    <input type="text" id="register-name" name="name" class="form-input" placeholder="Alex Mercer" autocomplete="name" required aria-describedby="register-name-error" />
+                    <span class="input-status-icon" aria-hidden="true"></span>
+                  </div>
+                  <p id="register-name-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="register-email" class="form-label">Email Address</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" id="register-email" name="email" class="form-input" placeholder="name@example.com" autocomplete="email" required aria-describedby="register-email-error" />
+                    <span class="input-status-icon" aria-hidden="true"></span>
+                  </div>
+                  <p id="register-email-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="register-password" class="form-label">Password</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-solid fa-lock"></i></span>
+                    <input type="password" id="register-password" name="password" class="form-input" placeholder="Create a strong password" autocomplete="new-password" required aria-describedby="register-password-error password-strength-text" />
+                    <button type="button" class="password-toggle" data-target="register-password" aria-label="Show password" aria-pressed="false">
+                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <div class="strength-meter" id="strength-meter" data-strength="0">
+                    <div class="strength-meter__header">
+                      <span class="strength-meter__title">Strength</span>
+                      <span id="password-strength-text" class="strength-meter__label">Enter password</span>
+                    </div>
+                    <div class="strength-meter__bars" aria-hidden="true">
+                      <span class="strength-bar"></span><span class="strength-bar"></span><span class="strength-bar"></span><span class="strength-bar"></span>
+                    </div>
+                    <ul class="strength-rules" aria-label="Password requirements">
+                      <li data-rule="length"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> 8+ chars</li>
+                      <li data-rule="upper"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Uppercase</li>
+                      <li data-rule="number"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Number</li>
+                      <li data-rule="special"><i class="fa-solid fa-circle-dot" aria-hidden="true"></i> Symbol</li>
+                    </ul>
+                  </div>
+                  <p id="register-password-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-group">
+                  <label for="register-confirm" class="form-label">Confirm Password</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-solid fa-shield-halved"></i></span>
+                    <input type="password" id="register-confirm" name="confirmPassword" class="form-input" placeholder="Repeat your password" autocomplete="new-password" required aria-describedby="register-confirm-error" />
+                    <button type="button" class="password-toggle" data-target="register-confirm" aria-label="Show password" aria-pressed="false">
+                      <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                    </button>
+                  </div>
+                  <p id="register-confirm-error" class="field-error" role="alert"></p>
+                </div>
+
+                <div class="form-group form-group--compact">
+                  <label class="checkbox-label">
+                    <input type="checkbox" id="register-terms" class="checkbox-input" />
+                    <span class="checkbox-box" aria-hidden="true"><i class="fa-solid fa-check"></i></span>
+                    <span class="checkbox-text">Simulated demo only — no real credentials stored.</span>
+                  </label>
+                  <p id="register-terms-error" class="field-error" role="alert"></p>
+                </div>
+
+                <button type="submit" id="register-submit" class="btn btn--primary">
+                  <span class="btn__content">
+                    <span>Create Account</span>
+                    <i class="fa-solid fa-arrow-right btn__arrow" aria-hidden="true"></i>
+                  </span>
+                  <span class="btn__loader" aria-hidden="true">
+                    <span class="spinner"></span>
+                    <span>Creating account...</span>
+                  </span>
+                </button>
+
+                <p class="form-switch">
+                  Already have an account?
+                  <button type="button" class="text-link text-link--strong" data-switch-view="login">Sign in</button>
+                </p>
+              </form>
+            </div>
+
+            <!-- FORGOT -->
+            <div id="view-forgot" class="auth-view" hidden>
+              <button type="button" class="back-btn" data-switch-view="login">
+                <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                <span>Back to Sign In</span>
+              </button>
+              <div class="view-header">
+                <h2 class="view-header__title">Reset Password</h2>
+                <p class="view-header__desc">Enter your email address and we'll simulate sending a recovery link.</p>
+              </div>
+              <form id="forgot-form" class="auth-form" novalidate>
+                <div class="form-group">
+                  <label for="forgot-email" class="form-label">Email Address</label>
+                  <div class="input-wrapper">
+                    <span class="input-icon" aria-hidden="true"><i class="fa-regular fa-envelope"></i></span>
+                    <input type="email" id="forgot-email" name="email" class="form-input" placeholder="name@example.com" autocomplete="email" required aria-describedby="forgot-email-error" />
+                    <span class="input-status-icon" aria-hidden="true"></span>
+                  </div>
+                  <p id="forgot-email-error" class="field-error" role="alert"></p>
+                </div>
+                <button type="submit" id="forgot-submit" class="btn btn--primary">
+                  <span class="btn__content">
+                    <span>Send Reset Link</span>
+                    <i class="fa-regular fa-paper-plane btn__arrow" aria-hidden="true"></i>
+                  </span>
+                  <span class="btn__loader" aria-hidden="true">
+                    <span class="spinner"></span>
+                    <span>Sending link...</span>
+                  </span>
+                </button>
+              </form>
+              <div id="forgot-sent-box" class="reset-sent-box" hidden>
+                <div class="reset-sent-box__icon" aria-hidden="true"><i class="fa-solid fa-envelope-circle-check"></i></div>
+                <h3 class="reset-sent-box__title">Check your inbox</h3>
+                <p class="reset-sent-box__desc">Simulated reset link prepared for <strong id="forgot-sent-email"></strong>.</p>
+                <div class="reset-sent-box__actions">
+                  <button type="button" class="btn btn--primary" data-switch-view="login">
+                    <span class="btn__content"><span>Return to Sign In</span></span>
+                  </button>
+                  <button type="button" id="forgot-resend-btn" class="text-link">Try another email</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- SUCCESS -->
+            <div id="view-success" class="auth-view" hidden>
+              <div class="success-card">
+                <div class="success-card__badge" aria-hidden="true"><i class="fa-solid fa-check"></i></div>
+                <h2 id="success-title" class="success-card__title">Signed in successfully</h2>
+                <p class="success-card__desc">Simulated session started for <strong id="success-user-email"></strong>.</p>
+                <button type="button" id="demo-signout-btn" class="btn btn--primary">
+                  <span class="btn__content">
+                    <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i>
+                    <span>Sign Out &amp; Reset Demo</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-notice" role="note">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            <span>Interactive UI demo — simulated auth only. Press Alt + T to toggle theme.</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
